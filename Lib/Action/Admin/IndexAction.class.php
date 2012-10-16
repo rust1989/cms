@@ -22,7 +22,7 @@ class IndexAction extends GobalAction {
 	   $this->display('Public:menu');	
 	}
 	public function _list(){
-	   $DB=M('module');
+	   $DB=M('category');
 	   $list=$DB->where('pid=0')->select();
 	   $this->assign('list',$list);
 	   	

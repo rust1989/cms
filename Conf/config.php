@@ -33,6 +33,16 @@ return array(
 	
 	'APP_DESCRIPTION'=>'弘晟官网',
 	
+   'LOGO'=>'网站LOGO',
+   
+   'WEBSITE'=>'网站名称',
+   
+   'WEBURL'=>'网站URL',
+   
+   'CLOSE'=>'网站关闭',
+   
+   'CLOSETXT'=>'关闭原因',
+	
 	'APP_KEYWORDS'=>'',
 	
 	'TMPL_PARSE_STRING'  =>array(
@@ -62,6 +72,8 @@ return array(
 	  'LANG_AUTO_DETECT' => true, // 自动侦测语言 开启多语言功能后有效
 
       'LANG_LIST'        => 'zh-cn', // 允许切换的语言列表 用逗号分隔
+	  
+	  'DEFAULT_LANG'    =>'zh-cn',
 
       'VAR_LANGUAGE'     => 'l', // 默认语言切换变量
 	  

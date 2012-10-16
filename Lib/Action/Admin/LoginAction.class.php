@@ -22,6 +22,7 @@ class LoginAction extends GobalAction {
 		    }
 			$_SESSION['USER']=$username;
 			$_SESSION['STATUS']='ok';
+			$_SESSION['LANGID']=1;
 			$logtime=time();
 			//$logip=$this->ip();
 			$data=array(

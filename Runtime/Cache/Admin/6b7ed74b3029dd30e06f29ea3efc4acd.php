@@ -94,7 +94,6 @@ function noSelAll()
 </script>
 </head>
 <body leftmargin="8" topmargin="8" background='skin/images/allbg.gif'>
-
 <!--  快速转换位置按钮  -->
 <table width="98%" border="0" cellpadding="0" cellspacing="1" bgcolor="#D1DDAA" align="center">
 <tr>
@@ -102,8 +101,8 @@ function noSelAll()
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   <td align="center">
-    <input type='button' class="coolbg np" onClick="location='';" value='添加文档' />
-    <input type='button' class="coolbg np" onClick="location='';" value='我的文档' />
+    <input type='button' class="coolbg np" onClick="location='';" value='网站设置' />
+    <input type='button' class="coolbg np" onClick="location='';" value='首页横幅广告' />
     <input type='button' class='coolbg np' onClick="location='';" value='稿件审核' />
     <input type='button' class="coolbg np" onClick="location='';" value='栏目管理' />
     <input type='button' class="coolbg np" onClick="location='';" value='更新列表' />
@@ -115,21 +114,49 @@ function noSelAll()
 </td>
 </tr>
 </table>
+
   
 <!--  内容列表   -->
-<form name="form2">
+<form name="form2" action="__URL__/save" method="post">
 
-<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
+<table width="60%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">
-	<td height="24" colspan="10" background="skin/images/tbg.gif">&nbsp;文档列表&nbsp;</td>
+	<td height="24" colspan="10" background="skin/images/tbg.gif">&nbsp;网站设置&nbsp;</td>
 </tr>
 
-<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="20%"><?php echo L($vo['name']);?></td>
-	<td align="left"><input type="text" name="<?php echo ($vo["name"]); ?>" value="<?php echo ($vo["val"]); ?>"></td>
-</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('LOGO');?></td>
+	<td align="left">
+       <img src="<?php echo C('LOGO');?>">
+       <input type="hidden" name="LOGO" id="LOGO" value="<?php echo C('LOGO');?>">
+    </td>
+</tr>
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('WEBSITE');?></td>
+	<td align="left">
+       <input type="text" name="WEBSITE" id="WEBSITE" value="<?php echo C('WEBSITE');?>">
+    </td>
+</tr>
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('WEBURL');?></td>
+	<td align="left">
+       <input type="text" name="WEBURL" id="WEBURL" value="<?php echo C('WEBURL');?>">
+    </td>
+</tr>
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('CLOSE');?></td>
+	<td align="left">
+       <input type="text" name="CLOSE" id="CLOSE" value="<?php echo C('CLOSE');?>">
+    </td>
+</tr>
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('CLOSETXT');?></td>
+	<td align="left">
+       <textarea id="CLOSETXT" name="CLOSETXT" id="CLOSETXT"><?php echo C('CLOSETXT');?></textarea>
+    </td>
+</tr>
 <tr align="right" bgcolor="#EEF4EA">
-	<td height="36"  colspan="2" align="center"><!--翻页代码 --><input name="submit"  type="submit" value="" class="submit" /></td>
+	<td height="36"  colspan="2" align="center"><!--翻页代码 --><input name="submit"  type="submit" value="" class="submit"  /></td>
 </tr>
 </table>
 

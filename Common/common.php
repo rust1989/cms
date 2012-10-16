@@ -33,5 +33,13 @@ function ip(){
  }		
   return $ip;	
 }
-
+/*跳转*/
+function _jump($query,$url=''){
+	  $url=isset($url)?$url:"index";
+	  if($query){
+		 $this->success($url);  
+	  }else{
+		 $this->error($url);
+	  }	
+	}
 ?>
