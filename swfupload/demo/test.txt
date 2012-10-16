@@ -1,0 +1,6 @@
+array (
+  'dirname' => '.',
+  'basename' => 'logo.gif',
+  'extension' => 'gif',
+  'filename' => 'logo',
+)
