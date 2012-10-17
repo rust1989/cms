@@ -1,6 +1,12 @@
 array (
   'dirname' => '.',
+<<<<<<< HEAD
   'basename' => '社会责任.jpg',
   'extension' => 'jpg',
   'filename' => '社会责任',
+=======
+  'basename' => 'logo.gif',
+  'extension' => 'gif',
+  'filename' => 'logo',
+>>>>>>> 12548e407f3a6d648dc3f5316b4b825975edd47b
 )

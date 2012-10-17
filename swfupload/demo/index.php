@@ -61,6 +61,7 @@ SWFUpload.onload = function () {
 </script>
 </head>
 <body>
+<<<<<<< HEAD
 <div id="header">
 	<h1 id="logo"><a href="../">SWFUpload</a></h1>
 	<div id="version">v2.2.0</div>
@@ -79,6 +80,12 @@ SWFUpload.onload = function () {
 		<p>
 			Each of these tests demontrate how these issues can be handled by SWFUpload and the SWFObject libraries.
 		</p>
+=======
+
+<div id="content">
+	<form id="form1" action="index.php" method="post" enctype="multipart/form-data">
+
+>>>>>>> 12548e407f3a6d648dc3f5316b4b825975edd47b
 		<div id="divSWFUploadUI">
 			<div class="fieldset  flash" id="fsUploadProgress">
 			<span class="legend">Upload Queue</span>
@@ -107,5 +114,9 @@ SWFUpload.onload = function () {
 		</div>
 	</form>
 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 12548e407f3a6d648dc3f5316b4b825975edd47b
 </body>
 </html>
