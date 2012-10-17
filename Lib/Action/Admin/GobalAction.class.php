@@ -5,6 +5,8 @@ class GobalAction extends Action {
 	  parent::__construct();	
 	}
     public function index(){
+		 if (isset($_POST["PHPSESSID"]))
+         session_id($_POST["PHPSESSID"]); 
 	     if($_SESSION['STATUS']!=true)
 	     $this->redirect('Login/index');	
     }

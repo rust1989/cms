@@ -1,4 +1,9 @@
-﻿.submit{
+﻿#img{
+	border:1px solid #999;
+	 height:50px;
+	 width:100px;
+}
+.submit{
 	width:57px;
 	height:23px;
 	background:url(../images/submit.gif) no-repeat;
@@ -117,7 +122,7 @@ input { border: 1px solid #ababab;  }
   padding:2px;
   padding-right:5px;
   padding-left:5px;
-  background: url(allbtbg2.gif) #EFF7D0;
+  background-color: #EFF7D0;
   cursor:pointer;
 }
 

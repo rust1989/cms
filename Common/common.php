@@ -42,4 +42,8 @@ function _jump($query,$url=''){
 		 $this->error($url);
 	  }	
 	}
+/*json*/
+function json($arr){
+  return json_encode($arr);	
+}
 ?>

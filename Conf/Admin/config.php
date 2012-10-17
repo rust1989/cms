@@ -10,18 +10,9 @@ $orignarr=array(
 'THUMBMAXWIDTH'=>'',
 'THUMBMAXHEIGHT'=>'',
 'ATTACHPATH'=>'',
-<<<<<<< HEAD
-'DB_TYPE'=>'',
-'DB_HOST'=>'',
-'DB_NAME'=>'',
-'DB_USER'=>'',
-'DB_PWD'=>'',
-'DB_PREFIX'=>'',
-'DB_FIELDS_CACHE'=>'',
-=======
->>>>>>> 12548e407f3a6d648dc3f5316b4b825975edd47b
 'submit'=>'',
 'WEBURL'=>'网站URL',
+'ATTACHEXT'=>"*.jpg;*.gif;*.png;*.jpeg;",//格式
 
 );
 return array_merge($basearr,$orignarr);

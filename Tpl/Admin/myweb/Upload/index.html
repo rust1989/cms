@@ -1,27 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-<title>SWFUpload Demos - SWFObject Demo</title>
-<link href="../css/default.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../swfupload/swfupload.js"></script>
-<script type="text/javascript" src="js/swfupload.swfobject.js"></script>
-<script type="text/javascript" src="js/swfupload.queue.js"></script>
-<script type="text/javascript" src="js/fileprogress.js"></script>
-<script type="text/javascript" src="js/handlers.js"></script>
+<link href="<?php echo APP_TMPL_PATH;?>skin/css/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<?php echo APP_TMPL_PATH;?>skin/js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo APP_TMPL_PATH;?>skin/swfupload.js"></script>
+<script type="text/javascript" src="<?php echo APP_TMPL_PATH;?>skin/js/swfupload.swfobject.js"></script>
+<script type="text/javascript" src="<?php echo APP_TMPL_PATH;?>skin/js/swfupload.queue.js"></script>
+<script type="text/javascript" src="<?php echo APP_TMPL_PATH;?>skin/js/fileprogress.js"></script>
+<script type="text/javascript" src="<?php echo APP_TMPL_PATH;?>skin/js/handlers.js"></script>
 <script type="text/javascript">
 var swfu;
 
 SWFUpload.onload = function () {
 	var settings = {
-		flash_url : "../swfupload/swfupload.swf",
-		upload_url: "upload.php",
+		flash_url : "<?php echo APP_TMPL_PATH;?>skin/swfupload.swf",
+		upload_url: "/index.php/Admin/Upload/_upload/",
 		post_params: {
-			"PHPSESSID" : "NONE",
+			"PHPSESSID" : "<?php echo session_id(); ?>",
 			"HELLO-WORLD" : "Here I Am",
 			".what" : "OKAY"
 		},
 		file_size_limit : "100 MB",
-		file_types : "*.jpg;*.gif;*.png;*.jpeg;",
+		file_types : "<?php echo C('ATTACHEXT'); ?>",
 		file_types_description : "All Files",
 		file_upload_limit : 100,
 		file_queue_limit : 0,
@@ -32,7 +32,7 @@ SWFUpload.onload = function () {
 		debug: false,
 
 		// Button Settings
-		button_image_url : "XPButtonUploadText_61x22.png",
+		button_image_url : "<?php echo APP_TMPL_PATH;?>skin/images/XPButtonUploadText_61x22.png",
 		button_placeholder_id : "spanButtonPlaceholder",
 		button_width: 61,
 		button_height: 22,
@@ -59,6 +59,19 @@ SWFUpload.onload = function () {
 }
 
 </script>
+<script>
+jQuery.get("__URL__/_list",function(data){
+	   data=eval("("+data+")");
+	    var file_exist=new Array();
+		$.each(data,function(index,items){
+		 
+		 //new FileProgress(file, this.customSettings.progressTarget);
+		 file_exist[index]['id']=items['id'];
+		  
+		});
+		alert(file_exist);
+});
+</script>
 </head>
 
 
@@ -76,7 +89,10 @@ SWFUpload.onload = function () {
 			</p>
             <div class="fieldset  flash" id="fsUploadProgress">
 			<span class="legend">Upload Queue</span>
-			</div>
+          <!--  <volist name="list" id="vo">
+            <div class="progressWrapper"  style="opacity: 1; "><div class="progressContainer blue"><a class="progressCancel" href="__URL__/del/id/{$vo.id}" style="visibility: visible; "> </a><div class="progressName">图集.jpg</div><div class="progressBarStatus">Complete.</div><div class="progressBarComplete" style=""></div></div></div>
+			</volist>-->
+            </div>
 		</div>
 		<noscript>
 			<div style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px;">
@@ -95,5 +111,6 @@ SWFUpload.onload = function () {
 		</div>
 	</form>
 </div>
+
 </body>
 </html>

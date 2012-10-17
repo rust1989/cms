@@ -219,7 +219,7 @@
                 return false;
         };
         $.fn.skygqbox.Default = {
-                title           : "对话框",
+                title           : "上传控件",
                 shut            : "关闭",
                 index           : 2000,
                 opacity         : 0.5,

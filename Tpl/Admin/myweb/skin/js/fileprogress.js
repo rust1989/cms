@@ -8,9 +8,10 @@
 // file is a SWFUpload file object
 // targetID is the HTML element id attribute that the FileProgress HTML structure will be added to.
 // Instantiating a new FileProgress object with an existing file will reuse/update the existing DOM elements
+
 function FileProgress(file, targetID) {
 	this.fileProgressID = file.id;
-
+   
 	this.opacity = 100;
 	this.height = 0;
 	
@@ -53,7 +54,7 @@ function FileProgress(file, targetID) {
 		this.fileProgressElement = this.fileProgressWrapper.firstChild;
 		this.reset();
 	}
-
+   
 	this.height = this.fileProgressWrapper.offsetHeight;
 	this.setTimer(null);
 

@@ -157,7 +157,7 @@ a:link,a:visited {
 		<dd class='img'><a href="javascript:ChangeMenu(0);"><img vspace="3" src="<?php echo APP_TMPL_PATH;?>skin/images/frame/arrfc.gif" border="0" width="12" height="12" alt="显示/隐藏左框架" title="显示/隐藏左框架" /></a></dd>
 		<dd class='img' style="margin-right:10px;"><a href="javascript:ChangeMenu(1);"><img vspace="5" src="<?php echo APP_TMPL_PATH;?>skin/images/frame/arrr.gif" border="0" width="5" height="8" alt="增大左框架" title="增大左框架" /></a></dd>
 	
-        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><dd><div class='item' id='item<?php echo ($i); ?>' onMouseMove="mv(this,'m',<?php echo ($i); ?>);" onMouseOut="mv(this,'o',<?php echo ($i); ?>);"><a href="__GROUP__/index/menu/action/<?php echo ($vo["module"]); ?>" onclick="changeSel(<?php echo ($i); ?>)" target="menu"><?php echo ($vo["title"]); ?></a></div></dd><?php endforeach; endif; else: echo "" ;endif; ?>
+        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><dd><div class='item' id='item<?php echo ($i); ?>' onMouseMove="mv(this,'m',<?php echo ($i); ?>);" onMouseOut="mv(this,'o',<?php echo ($i); ?>);"><a href="__GROUP__/Menu/menu/action/<?php echo ($vo["module"]); ?>" onclick="changeSel(<?php echo ($i); ?>);"  target="menu"><?php echo ($vo["title"]); ?></a></div></dd><?php endforeach; endif; else: echo "" ;endif; ?>
         </dl>
 		</td>
       </tr>

@@ -127,11 +127,7 @@ function noSelAll()
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td width="30%"><?php echo L('LOGO');?></td>
 	<td align="left">
-<<<<<<< HEAD
-       <img src="<?php echo C('LOGO');?>">
-=======
-       <img src="<?php echo C('LOGO');?>" id="img">
->>>>>>> 12548e407f3a6d648dc3f5316b4b825975edd47b
+       <div id="img"></div>
        <input type="hidden" name="LOGO" id="LOGO" value="<?php echo C('LOGO');?>">
     </td>
 </tr>
@@ -166,12 +162,9 @@ function noSelAll()
 
 </form>
 
-<<<<<<< HEAD
-=======
 <script type="text/javascript" src="__JS__/jquery.js"></script>
 <script type="text/javascript" src="__JS__/skygqbox.js"></script>
 <script type="text/javascript" src="__JS__/img.js"></script>
 
->>>>>>> 12548e407f3a6d648dc3f5316b4b825975edd47b
 </body>
 </html>

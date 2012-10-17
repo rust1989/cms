@@ -12,7 +12,6 @@ The FileProgress class is not part of SWFUpload.
    of the actions SWFUpload makes will show up in my application.
    ********************** */
 
-
 function swfUploadPreLoad() {
 	var self = this;
 	var loading = function () {
@@ -149,7 +148,6 @@ function uploadProgress(file, bytesLoaded, bytesTotal) {
 
 function uploadSuccess(file, serverData) {
 	try {
-		
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setComplete();
 		progress.setStatus("Complete.");
