@@ -14,7 +14,7 @@ var swfu;
 SWFUpload.onload = function () {
 	var settings = {
 		flash_url : "<?php echo APP_TMPL_PATH;?>skin/swfupload.swf",
-		upload_url: "/index.php/Admin/Upload/_upload/",
+		upload_url: "/myweb/index.php/Admin/Upload/_upload/",
 		post_params: {
 			"PHPSESSID" : "<?php echo session_id(); ?>",
 			"HELLO-WORLD" : "Here I Am",
@@ -57,20 +57,17 @@ SWFUpload.onload = function () {
 
 	swfu = new SWFUpload(settings);
 }
-
-</script>
-<script>
 jQuery.get("__URL__/_list",function(data){
-	   data=eval("("+data+")");
-	    var file_exist=new Array();
+	  
+	   if(data!==""){						
+	    data=eval("("+data+")");
+	   
 		$.each(data,function(index,items){
-		 
-		 //new FileProgress(file, this.customSettings.progressTarget);
-		 file_exist[index]['id']=items['id'];
-		  
+          new FileProgress(items,"fsUploadProgress");		  
 		});
-		alert(file_exist);
+	   }
 });
+
 </script>
 </head>
 

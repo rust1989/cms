@@ -15,7 +15,8 @@ class MenuAction extends GobalAction {
 	   $DB=M('category');
 	   $list=$DB->where('pid=0')->select();
 	   $this->assign('list',$list);
-	   	
+	   $clist=$DB->where('pid!=0')->select();
+	   $this->assign('clist',$clist);
 	}
 	
 }

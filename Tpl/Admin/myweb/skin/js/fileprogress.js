@@ -15,7 +15,7 @@ function FileProgress(file, targetID) {
 	this.opacity = 100;
 	this.height = 0;
 	
-
+    
 	this.fileProgressWrapper = document.getElementById(this.fileProgressID);
 	if (!this.fileProgressWrapper) {
 		this.fileProgressWrapper = document.createElement("div");

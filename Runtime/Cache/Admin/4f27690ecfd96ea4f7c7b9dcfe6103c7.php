@@ -102,8 +102,7 @@ function noSelAll()
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   <td align="center">
-    <input type='button' class="coolbg np" onClick="location='';" value='添加管理员' />
-    
+    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加角色' />
  </td>
  </tr>
 </table>
@@ -121,146 +120,19 @@ function noSelAll()
 <tr align="center" bgcolor="#FAFAF1" height="22">
 	<td width="6%">ID</td>
 	<td width="4%">选择</td>
-	<td width="28%">文章标题</td>
-	<td width="10%">录入时间</td>
-	<td width="10%">类目</td>
-	<td width="8%">点击</td>
-	<td width="6%">HTML</td>
-	<td width="8%">权限</td>
-	<td width="8%">发布人</td>
-	<td width="10%">操作</td>
+	<td width="34%">名称</td>
+	<td width="24%">最后登录时间</td>
+	<td width="18%">最后登录地址</td>
+	<td width="18%">操作</td>
 </tr>
-
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td>5</td>
-	<td><input name="id" type="checkbox" id="id" value="101" class="np"></td>
-	<td align="left"><a href=''><u>朱晖</u></a></td>
-	<td>2009-05-29</td>
-	<td>预防保健</td>
-	<td>3</td>
-	<td>已生成</td>
-	<td>开放浏览</td>
-	<td>admin</td>
-	<td><a href="101">编辑</a> | <a href="101">预览</a></td>
-</tr>
-
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>5</td>
-	<td><input name="id" type="checkbox" id="id" value="100" class="np"></td>
-	<td align="left"><a href=''><u>肖梅华</u></a></td>
-	<td>2009-05-29</td>
-	<td>预防保健</td>
-	<td>3</td>
-	<td>已生成</td>
-	<td>开放浏览</td>
-	<td>admin</td>
-	<td><a href="100">编辑</a> | <a href="100">预览</a></td>
-</tr>
-
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>5</td>
-	<td><input name="id" type="checkbox" id="id" value="99" class="np"></td>
-	<td align="left"><a href=''><u>俞圭田</u></a></td>
-	<td>2009-05-29</td>
-	<td>预防保健</td>
-	<td>3</td>
-	<td>已生成</td>
-	<td>开放浏览</td>
-	<td>admin</td>
-	<td><a href="99">编辑</a> | <a href="99">预览</a></td>
-</tr>
-
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>5</td>
-	<td><input name="id" type="checkbox" id="id" value="98" class="np"></td>
-	<td align="left"><a href=''><u>王采文</u></a></td>
-	<td>2009-05-29</td>
-	<td>预防保健</td>
-	<td>3</td>
-	<td>已生成</td>
-	<td>开放浏览</td>
-	<td>admin</td>
-	<td><a href="98">编辑</a> | <a href="98">预览</a></td>
-</tr>
-
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>5</td>
-	<td><input name="id" type="checkbox" id="id" value="97" class="np"></td>
-	<td align="left"><a href=''><u>陈惠林</u></a></td>
-	<td>2009-05-29</td>
-	<td>预防保健</td>
-	<td>3</td>
-	<td>已生成</td>
-	<td>开放浏览</td>
-	<td>admin</td>
-	<td><a href="97">编辑</a> | <a href="97">预览</a></td>
-</tr>
-
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>5</td>
-	<td><input name="id" type="checkbox" id="id" value="96" class="np"></td>
-	<td align="left"><a href=''><u>杨优洲</u></a></td>
-	<td>2009-05-29</td>
-	<td>预防保健</td>
-	<td>3</td>
-	<td>已生成</td>
-	<td>开放浏览</td>
-	<td>admin</td>
-	<td><a href="96">编辑</a> | <a href="96">预览</a></td>
-</tr>
-
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>5</td>
-	<td><input name="id" type="checkbox" id="id" value="95" class="np"></td>
-	<td align="left"><a href=''><u>马菲亚</u></a></td>
-	<td>2009-05-29</td>
-	<td>预防保健</td>
-	<td>3</td>
-	<td>已生成</td>
-	<td>开放浏览</td>
-	<td>admin</td>
-	<td><a href="95">编辑</a> | <a href="95">预览</a></td>
-</tr>
-
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>5</td>
-	<td><input name="id" type="checkbox" id="id" value="94" class="np"></td>
-	<td align="left"><a href=''><u>刘洁</u></a></td>
-	<td>2009-05-29</td>
-	<td>预防保健</td>
-	<td>3</td>
-	<td>已生成</td>
-	<td>开放浏览</td>
-	<td>admin</td>
-	<td><a href="94">编辑</a> | <a href="94">预览</a></td>
-</tr>
-
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>5</td>
-	<td><input name="id" type="checkbox" id="id" value="93" class="np"></td>
-	<td align="left"><a href=''><u>石书芳</u></a></td>
-	<td>2009-05-29</td>
-	<td>预防保健</td>
-	<td>3</td>
-	<td>已生成</td>
-	<td>开放浏览</td>
-	<td>admin</td>
-	<td><a href="93">编辑</a> | <a href="93">预览</a></td>
-</tr>
-
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>5</td>
-	<td><input name="id" type="checkbox" id="id" value="92" class="np"></td>
-	<td align="left"><a href=''><u>朱宝英</u></a></td>
-	<td>2009-05-29</td>
-	<td>预防保健</td>
-	<td>3</td>
-	<td>已生成</td>
-	<td>开放浏览</td>
-	<td>admin</td>
-	<td><a href="92">编辑</a> | <a href="92">预览</a></td>
-</tr>
-
+	<td><input name="id" type="checkbox" id="id" value="<?php echo ($vo["id"]); ?>" class="np"></td>
+	<td><?php echo ($vo["user"]); ?></a></td>
+	<td><?php echo date("Y-m-d H:i:s",$vo['logtime']);?></td>
+	<td><?php echo ($vo["logip"]); ?></td>
+	<td><a href="__URL__/add/id/<?php echo ($vo["id"]); ?>">编辑</a></td>
+</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 <tr bgcolor="#FAFAF1">
 <td height="28" colspan="10">
 	&nbsp;

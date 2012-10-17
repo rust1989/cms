@@ -20,6 +20,7 @@
         <dd style='display:block' class='sitem' id='items<?php echo ($i); ?>_1'>
           <ul class='sitemu'>
             <li><a href='__GROUP__/<?php echo ($vo["module"]); ?>' target='main'><?php echo ($vo["title"]); ?></a></li>
+            <?php if(is_array($clist)): $i = 0; $__LIST__ = $clist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$jo): $mod = ($i % 2 );++$i; if($jo['pid'] == $vo['id']): ?><li><a href='__GROUP__/<?php echo ($jo["module"]); ?>/<?php echo ($jo["control"]); ?>' target='main'><?php echo ($jo["title"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
           </ul>
         </dd>
       </dl><?php endif; endforeach; endif; else: echo "" ;endif; ?>

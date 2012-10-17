@@ -21,7 +21,8 @@ class UploadAction extends GobalAction {
 			$file_type   = $file_info['extension'];
 			$path="Uploads/".date("Ymd")."/";
 			if(!is_file($path)) @mkdir($path);
-			$save        = $path. md5(uniqid($_FILES["Filedata"]['name'])) . '.' . $file_info['extension'];
+			$name=md5(uniqid($_FILES["Filedata"]['name'])) . '.' . $file_info['extension'];
+			$save        = $path.$name;
            
 			$name        = $_FILES['Filedata']['tmp_name'];
 			
@@ -31,6 +32,7 @@ class UploadAction extends GobalAction {
 	    $DB=M('attachment');
 		$DB->create();
 		$DB->picpath=$save;
+		$DB->name=$name;
 		$DB->add();
 	 }	
 	}

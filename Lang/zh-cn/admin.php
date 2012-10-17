@@ -41,7 +41,13 @@ return array(
    
    'SUCCESS'=>'操作成功',
    
-   'FAILURE'=>'操作失败'
+   'FAILURE'=>'操作失败',
+   
+   'PWD'=>'密&nbsp;码',
+   
+   'SPWD'=>'确认密码',
+   
+   'USER'=>'用户'
    
    
    
