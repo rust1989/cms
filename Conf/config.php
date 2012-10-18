@@ -48,11 +48,11 @@ return array(
 	'TMPL_PARSE_STRING'  =>array(
 
 
-     '__JS__' => '/Public/Js', // 增加新的JS类库路径替换规则
+     '__JS__' => '/myweb/Public/Js', // 增加新的JS类库路径替换规则
   
-     '__CSS__' => '/Public/Css', // 增加新的css类库路径替换规
+     '__CSS__' => '/myweb/Public/Css', // 增加新的css类库路径替换规
  
-     '__IMG__' => '/Public/Images', // 增加新的img类库路径替换
+     '__IMG__' => '/myweb/Public/Images', // 增加新的img类库路径替换
 	  ),
 	
 	 //缓存

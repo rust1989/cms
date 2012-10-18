@@ -29,6 +29,24 @@ class SettingAction extends GobalAction {
 	  $this->success("",__URL__.'/index');
     }
    public function banner(){
+	  $DB=M('banner'); 
+	  $langid=$_SESSION['LANGID'];
+	  $list=$DB->select(array('langid'=>$langid));
+	  
+	  $this->assign('banner_1',$list[0]['picpath']);
+	  $this->assign('banner_2',$list[1]['picpath']);
 	  $this->display();   
+   }
+   public function savebanner(){
+	 $DB=M('banner');
+	 $langid=$_SESSION['LANGID'];
+	 $data=$_POST;
+	 array_pop($data);
+	 array_pop($data);
+	 
+	 foreach($data as $key=>$val){
+	 $query=$DB->query("REPLACE INTO my_banner VALUES ('$key','$val',$langid)");
+	 }
+	 $this->success("","banner");
    }
 }

@@ -127,8 +127,9 @@ function noSelAll()
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td width="30%"><?php echo L('LOGO');?></td>
 	<td align="left">
-       <div id="img"><img src="<?php echo C('LOGO');?>" height="50" onClick="imgclick();"></div>
+       <div id="img" onClick="imgclick(this);"><img src="<?php echo C('LOGO');?>" height="50" >
        <input type="hidden" name="LOGO" id="img_hid" value="<?php echo C('LOGO');?>">
+       </div>
     </td>
 </tr>
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >

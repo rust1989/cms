@@ -8,7 +8,7 @@
 <body leftmargin="8" topmargin="8" background='skin/images/allbg.gif'>
   
 <!--  内容列表   -->
-<form name="form2" action="__URL__/save" method="post">
+<form name="form2" action="__URL__/savebanner" method="post">
 
 <table width="60%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">
@@ -18,8 +18,8 @@
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td width="30%"><?php echo L('BANNER');?></td>
 	<td align="left">
-       <div id="img" onClick="imgclick(this);"><img src="/<?php echo C('LOGO');?>" height="50" >
-        <input type="hidden" name="LOGO" id="img_hid" value="<?php echo C('LOGO');?>">
+       <div id="img" onClick="imgclick(this);"><img src="/<?php echo ($banner_1); ?>" height="50" >
+        <input type="hidden" name="banner_1" id="img_hid" value="<?php echo ($banner_1); ?>">
        </div>
       
     </td>
@@ -27,8 +27,8 @@
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td width="30%"><?php echo L('BANNER');?></td>
 	<td align="left">
-       <div id="img" onClick="imgclick(this);"><img src="/<?php echo C('LOGO');?>" height="50" >
-       <input type="hidden" name="LOGO" id="img_hid" value="<?php echo C('LOGO');?>">
+       <div id="img" onClick="imgclick(this);"><img src="/<?php echo ($banner_2); ?>" height="50" >
+       <input type="hidden" name="banner_2" id="img_hid" value="<?php echo ($banner_2); ?>">
        </div>
        
     </td>

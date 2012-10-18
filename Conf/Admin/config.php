@@ -12,6 +12,8 @@ $orignarr=array(
 'ATTACHPATH'=>'',
 'submit'=>'',
 'WEBURL'=>'网站URL',
+'banner_1'=>'Uploads/20121018/03ff8ef80bb4ff4bed6d1b5eb32fe029.jpg',
+'banner_2'=>'',
 
 );
 return array_merge($basearr,$orignarr);

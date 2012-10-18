@@ -5,6 +5,9 @@ class LoginAction extends GobalAction {
 	  parent::__construct();
 	}
     public function index(){
+		
+		if($_SESSION['STATUS']==true)
+	   $this->redirect('Index/index');
        $this->display();
     }
 	public function checklogin(){
@@ -21,7 +24,7 @@ class LoginAction extends GobalAction {
 			$this->error(L('LogError'),'index');		
 		    }
 			$_SESSION['USER']=$username;
-			$_SESSION['STATUS']='ok';
+			$_SESSION['STATUS']=true;
 			$_SESSION['LANGID']=1;
 			$logtime=time();
 			//$logip=$this->ip();
@@ -40,8 +43,10 @@ class LoginAction extends GobalAction {
 	  Image::buildImageVerify();	
 	}
 	public function logout(){
-	   $_SESSION['USER']='';
-	   $_SESSION['STATUS']=false;
+	   unset($_SESSION['STATUS']);
+	   unset($_SESSION['USER']);
+	   unset($_SESSION['LANGID']);
+	
 	   $this->redirect('index');	
 	}
 }
