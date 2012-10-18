@@ -59,10 +59,17 @@ function swfUploadLoadFailed() {
    
 function fileQueued(file) {
 	try {
-		var progress = new FileProgress(file, this.customSettings.progressTarget);
+		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setStatus("Pending...");
 		progress.toggleCancel(true, this);
-
+*/  /* jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
+	    data=eval("("+data+")");
+		$.each(data,function(index,items){
+          var progress=new FileProgress(items,"fsUploadProgress");
+		 progress.setStatus("Pending...");
+		progress.toggleCancel(true, this);
+		});
+        });*/
 	} catch (ex) {
 		this.debug(ex);
 	}
@@ -75,10 +82,19 @@ function fileQueueError(file, errorCode, message) {
 			alert("You have attempted to queue too many files.\n" + (message === 0 ? "You have reached the upload limit." : "You may select " + (message > 1 ? "up to " + message + " files." : "one file.")));
 			return;
 		}
-
-		var progress = new FileProgress(file, this.customSettings.progressTarget);
+        
+		jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
+	    data=eval("("+data+")");
+		$.each(data,function(index,items){
+          var progress=new FileProgress(items,"fsUploadProgress");
+		 progress.setError();
+		 progress.toggleCancel(false);
+		});
+        });
+		
+		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setError();
-		progress.toggleCancel(false);
+		progress.toggleCancel(false);*/
 
 		switch (errorCode) {
 		case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
@@ -125,9 +141,18 @@ function uploadStart(file) {
 		It's important to update the UI here because in Linux no uploadProgress events are called. The best
 		we can do is say we are uploading.
 		 */
-		var progress = new FileProgress(file, this.customSettings.progressTarget);
+		/* jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
+	    data=eval("("+data+")");
+		$.each(data,function(index,items){
+          var progress=new FileProgress(items,"fsUploadProgress");
+		 
+		  progress.toggleCancel(true,this);	
+		 progress.setStatus("Uploading...");
+		});
+        });*/
+		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setStatus("Uploading...");
-		progress.toggleCancel(true, this);
+		progress.toggleCancel(true, this);*/
 	}
 	catch (ex) {}
 	
@@ -137,10 +162,20 @@ function uploadStart(file) {
 function uploadProgress(file, bytesLoaded, bytesTotal) {
 	try {
 		var percent = Math.ceil((bytesLoaded / bytesTotal) * 100);
-
-		var progress = new FileProgress(file, this.customSettings.progressTarget);
+        
+		jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
+	    data=eval("("+data+")");
+		$.each(data,function(index,items){
+          var progress=new FileProgress(items,"fsUploadProgress");
+		  progress.toggleCancel(true,this);	
+		  progress.setProgress(percent);
+		  progress.setStatus("Uploading...")
+		});
+        });
+		
+		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setProgress(percent);
-		progress.setStatus("Uploading...");
+		progress.setStatus("Uploading...");*/
 	} catch (ex) {
 		this.debug(ex);
 	}
@@ -148,10 +183,19 @@ function uploadProgress(file, bytesLoaded, bytesTotal) {
 
 function uploadSuccess(file, serverData) {
 	try {
-		var progress = new FileProgress(file, this.customSettings.progressTarget);
+		jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
+	    data=eval("("+data+")");
+		$.each(data,function(index,items){
+          var progress=new FileProgress(items,"fsUploadProgress");
+		  progress.setComplete();
+		  progress.toggleCancel(true,this);	
+		  progress.setStatus("Complete.");
+		});
+        });
+		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setComplete();
 		progress.setStatus("Complete.");
-		progress.toggleCancel(true,this);
+		progress.toggleCancel(true,this);*/
 
 	} catch (ex) {
 		this.debug(ex);
@@ -160,10 +204,17 @@ function uploadSuccess(file, serverData) {
 
 function uploadError(file, errorCode, message) {
 	try {
-		var progress = new FileProgress(file, this.customSettings.progressTarget);
+		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setError();
+		progress.toggleCancel(false);*/
+       jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
+	    data=eval("("+data+")");
+		$.each(data,function(index,items){
+          var progress=new FileProgress(items,"fsUploadProgress");
+		 progress.setError();
 		progress.toggleCancel(false);
-
+		});
+        });
 		switch (errorCode) {
 		case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
 			progress.setStatus("Upload Error: " + message);

@@ -10,7 +10,23 @@ class GobalAction extends Action {
 	     if($_SESSION['STATUS']!=true)
 	     $this->redirect('Login/index');	
     }
-	public function checklogin(){
-		
+	public function delImg($arr){
+		if(is_array($arr)){
+			foreach($arr as $val){
+			  $this->delImg($val);	
+			}
+		}else{
+		  if(is_file($arr))	
+		  @unlink($arr);	
+		}
+	}
+	/*跳转*/
+   public function _jump($query,$url=''){
+	  $url=isset($url)?$url:"";
+	  if($query){
+		 $this->success("",$url);  
+	  }else{
+		 $this->error("",$url);
+	  }	
 	}
 }

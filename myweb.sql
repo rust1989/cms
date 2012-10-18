@@ -1,20 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 2.11.2.1
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2012 年 10 月 17 日 17:07
--- 服务器版本: 5.5.16
--- PHP 版本: 5.3.8
+-- 生成日期: 2012 年 10 月 18 日 10:27
+-- 服务器版本: 5.0.45
+-- PHP 版本: 5.2.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- 数据库: `myweb`
@@ -26,22 +19,22 @@ SET time_zone = "+00:00";
 -- 表的结构 `my_admin`
 --
 
-CREATE TABLE IF NOT EXISTS `my_admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `my_admin` (
+  `id` int(11) NOT NULL auto_increment,
   `user` varchar(50) NOT NULL,
   `pwd` varchar(50) NOT NULL,
   `logtime` varchar(255) NOT NULL,
   `logip` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- 转存表中的数据 `my_admin`
+-- 导出表中的数据 `my_admin`
 --
 
 INSERT INTO `my_admin` (`id`, `user`, `pwd`, `logtime`, `logip`) VALUES
 (1, '123', 'e10adc3949ba59abbe56e057f20f883e', '1350487970', ''),
-(2, 'admin', 'c6cf3c7e985888502b5b72917d8de3b8', '1350491678', '');
+(2, 'admin', 'c6cf3c7e985888502b5b72917d8de3b8', '1350524628', '');
 
 -- --------------------------------------------------------
 
@@ -49,13 +42,42 @@ INSERT INTO `my_admin` (`id`, `user`, `pwd`, `logtime`, `logip`) VALUES
 -- 表的结构 `my_attachment`
 --
 
-CREATE TABLE IF NOT EXISTS `my_attachment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `my_attachment` (
+  `id` int(11) NOT NULL auto_increment,
   `cid` int(11) NOT NULL,
   `picpath` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- 导出表中的数据 `my_attachment`
+--
+
+INSERT INTO `my_attachment` (`id`, `cid`, `picpath`, `name`) VALUES
+(6, 1, 'Uploads/20121018/03ff8ef80bb4ff4bed6d1b5eb32fe029.jpg', '03ff8ef80bb4ff4bed6d1b5eb32fe029.jpg'),
+(7, 1, 'Uploads/20121018/b02e4dc444ef7b7aa9802ca6a7f440dc.jpg', 'b02e4dc444ef7b7aa9802ca6a7f440dc.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `my_attachment_cateory`
+--
+
+CREATE TABLE `my_attachment_cateory` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- 导出表中的数据 `my_attachment_cateory`
+--
+
+INSERT INTO `my_attachment_cateory` (`id`, `name`) VALUES
+(1, 'banner'),
+(2, 'product'),
+(3, 'img');
 
 -- --------------------------------------------------------
 
@@ -63,19 +85,19 @@ CREATE TABLE IF NOT EXISTS `my_attachment` (
 -- 表的结构 `my_category`
 --
 
-CREATE TABLE IF NOT EXISTS `my_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pid` int(11) NOT NULL DEFAULT '0',
+CREATE TABLE `my_category` (
+  `id` int(11) NOT NULL auto_increment,
+  `pid` int(11) NOT NULL default '0',
   `title` varchar(255) NOT NULL,
   `action` varchar(255) NOT NULL,
   `module` varchar(255) NOT NULL,
   `mid` int(11) NOT NULL,
   `control` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- 转存表中的数据 `my_category`
+-- 导出表中的数据 `my_category`
 --
 
 INSERT INTO `my_category` (`id`, `pid`, `title`, `action`, `module`, `mid`, `control`) VALUES
@@ -92,12 +114,17 @@ INSERT INTO `my_category` (`id`, `pid`, `title`, `action`, `module`, `mid`, `con
 -- 表的结构 `my_module`
 --
 
-CREATE TABLE IF NOT EXISTS `my_module` (
-  `moduleid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `my_module` (
+  `moduleid` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
   `module` varchar(50) NOT NULL,
-  PRIMARY KEY (`moduleid`)
+  PRIMARY KEY  (`moduleid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- 导出表中的数据 `my_module`
+--
+
 
 -- --------------------------------------------------------
 
@@ -105,13 +132,18 @@ CREATE TABLE IF NOT EXISTS `my_module` (
 -- 表的结构 `my_module_field`
 --
 
-CREATE TABLE IF NOT EXISTS `my_module_field` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `my_module_field` (
+  `id` int(11) NOT NULL auto_increment,
   `pid` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `field` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- 导出表中的数据 `my_module_field`
+--
+
 
 -- --------------------------------------------------------
 
@@ -119,19 +151,19 @@ CREATE TABLE IF NOT EXISTS `my_module_field` (
 -- 表的结构 `my_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `my_setting` (
+CREATE TABLE `my_setting` (
   `name` varchar(255) NOT NULL,
   `val` varchar(255) NOT NULL,
   `langid` int(11) NOT NULL,
-  PRIMARY KEY (`name`)
+  PRIMARY KEY  (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `my_setting`
+-- 导出表中的数据 `my_setting`
 --
 
 INSERT INTO `my_setting` (`name`, `val`, `langid`) VALUES
-('LOGO', '网站LOGO', 1),
+('LOGO', 'Uploads/20121018/03ff8ef80bb4ff4bed6d1b5eb32fe029.jpg', 1),
 ('WEBSITE', '网站名称', 1),
 ('CLOSE', '网站关闭', 1),
 ('CLOSETXT', '关闭原因', 1),
@@ -149,7 +181,3 @@ INSERT INTO `my_setting` (`name`, `val`, `langid`) VALUES
 ('DB_FIELDS_CACHE', '', 0),
 ('submit', '', 1),
 ('WEBURL', '网站URL', 1);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

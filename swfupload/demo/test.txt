@@ -1,6 +1,0 @@
-array (
-  'dirname' => '.',
-  'basename' => '社会责任.jpg',
-  'extension' => 'jpg',
-  'filename' => '社会责任',
-)

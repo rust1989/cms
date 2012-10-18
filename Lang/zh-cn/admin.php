@@ -47,7 +47,15 @@ return array(
    
    'SPWD'=>'确认密码',
    
-   'USER'=>'用户'
+   'USER'=>'用户',
+   
+   'CATEORY'=>'文件夹',
+   
+   'CREATE'=>'创建',
+   
+   'NAME'=>'名称',
+   
+   'BANNER'=>'广告图'
    
    
    

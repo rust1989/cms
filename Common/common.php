@@ -46,4 +46,10 @@ function _jump($query,$url=''){
 function json($arr){
   return json_encode($arr);	
 }
+
+/*检查图片*/
+function checkimg($name){
+   if(!is_file($name)) return $name="/Public/Images/no_img.jpg";
+   return $name;	
+}
 ?>

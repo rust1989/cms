@@ -9,12 +9,92 @@
 <script type="text/javascript" src="<?php echo APP_TMPL_PATH;?>skin/js/fileprogress.js"></script>
 <script type="text/javascript" src="<?php echo APP_TMPL_PATH;?>skin/js/handlers.js"></script>
 <script type="text/javascript">
-var swfu;
+function addimg(name){
 
+	$("#wrapOut",window.parent.document).fadeOut("fast", function(){
+                                $(this).remove();
+                        });
+    $("#skygqOverlay",window.parent.document).fadeOut("fast", function(){
+                                $(this).remove();
+                        });
+	$(".selected img",window.parent.document).attr("src","/"+name);
+	$(".selected #img_hid",window.parent.document).val(""+name+"");
+	$(".selected",window.parent.document).removeClass("selected");
+};
+</script>
+</head>
+
+
+<div id="content" style="width:450px">
+
+	<form id="form1" action="index.php" method="post" enctype="multipart/form-data">
+
+		<div id="divSWFUploadUI">
+		
+			<p id="divStatus">0 Files Uploaded</p>
+			<p>
+				<span id="spanButtonPlaceholder"></span>
+				<input id="btnCancel" type="button" value="<?php echo L('CREATE').L('CATEORY');?>"  style="margin-left: 2px; height: 22px; font-size: 8pt;" />
+				<span style="float:right">
+                <?php echo L('CATEORY');?>：&nbsp;
+                <select id="cateory" name="cateory">
+                 <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"><?php echo ($vo["name"]); ?>  </option><?php endforeach; endif; else: echo "" ;endif; ?>
+                </select>
+               <input type="hidden" id="cid" name="cid" value="">
+                </span>
+                <br />
+			</p>
+            <div class="fieldset  flash" id="fsUploadProgress">
+			<span class="legend">Upload Queue</span>
+          <!--  <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="progressWrapper"  style="opacity: 1; "><div class="progressContainer blue"><a class="progressCancel" href="__URL__/del/id/<?php echo ($vo["id"]); ?>" style="visibility: visible; "> </a><div class="progressName">图集.jpg</div><div class="progressBarStatus">Complete.</div><div class="progressBarComplete" style=""></div></div></div><?php endforeach; endif; else: echo "" ;endif; ?>-->
+            </div>
+		</div>
+		<noscript>
+			<div style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px;">
+				We're sorry.  SWFUpload could not load.  You must have JavaScript enabled to enjoy SWFUpload.
+			</div>
+		</noscript>
+		<div id="divLoadingContent" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
+			SWFUpload is loading. Please wait a moment...
+		</div>
+		<div id="divLongLoading" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
+			SWFUpload is taking a long time to load or the load has failed.  Please make sure that the Flash Plugin is enabled and that a working version of the Adobe Flash Player is installed.
+		</div>
+		<div id="divAlternateContent" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
+			We're sorry.  SWFUpload could not load.  You may need to install or upgrade Flash Player.
+			Visit the <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">Adobe website</a> to get the Flash Player.
+		</div>
+	</form>
+</div>
+<script type="text/javascript">
+var swfu;
+var url;
+var val=jQuery("#cateory").children('option:selected').val();
+jQuery("#cid").val(""+val+"");	
+change();
+
+
+/*jQuery("#cateory").change(function(){
+   val=jQuery(this).children('option:selected').val();
+   jQuery("#cid").val(""+val+"");
+});*/
+function change(){
+url="/index.php/Admin/Upload/_upload/cid/"+val;
+jQuery.get("__URL__/_list/cid/"+val,function(data){						
+	    data=eval("("+data+")");
+	    
+		$.each(data,function(index,items){
+          var progress=new FileProgress(items,"fsUploadProgress");
+		  progress.setStatus("Complete.");	
+		  progress.toggleCancel(true);		  
+		});
+});
+
+}
 SWFUpload.onload = function () {
 	var settings = {
 		flash_url : "<?php echo APP_TMPL_PATH;?>skin/swfupload.swf",
-		upload_url: "/myweb/index.php/Admin/Upload/_upload/",
+		upload_url:url,
 		post_params: {
 			"PHPSESSID" : "<?php echo session_id(); ?>",
 			"HELLO-WORLD" : "Here I Am",
@@ -57,55 +137,14 @@ SWFUpload.onload = function () {
 
 	swfu = new SWFUpload(settings);
 }
-jQuery.get("__URL__/_list",function(data){
-	  
-	   if(data!==""){						
-	    data=eval("("+data+")");
-	   
-		$.each(data,function(index,items){
-          new FileProgress(items,"fsUploadProgress");		  
-		});
-	   }
+
+
+</script>
+<script type="text/javascript">
+jQuery("#btnCancel").click(function(){
+   window.location.href="__URL__/add";	
 });
 
 </script>
-</head>
-
-
-<div id="content" style="width:450px">
-
-	<form id="form1" action="index.php" method="post" enctype="multipart/form-data">
-
-		<div id="divSWFUploadUI">
-			
-			<p id="divStatus">0 Files Uploaded</p>
-			<p>
-				<span id="spanButtonPlaceholder"></span>
-				<input id="btnCancel" type="button" value="Cancel All Uploads" disabled="disabled" style="margin-left: 2px; height: 22px; font-size: 8pt;" />
-				<br />
-			</p>
-            <div class="fieldset  flash" id="fsUploadProgress">
-			<span class="legend">Upload Queue</span>
-          <!--  <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="progressWrapper"  style="opacity: 1; "><div class="progressContainer blue"><a class="progressCancel" href="__URL__/del/id/<?php echo ($vo["id"]); ?>" style="visibility: visible; "> </a><div class="progressName">图集.jpg</div><div class="progressBarStatus">Complete.</div><div class="progressBarComplete" style=""></div></div></div><?php endforeach; endif; else: echo "" ;endif; ?>-->
-            </div>
-		</div>
-		<noscript>
-			<div style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px;">
-				We're sorry.  SWFUpload could not load.  You must have JavaScript enabled to enjoy SWFUpload.
-			</div>
-		</noscript>
-		<div id="divLoadingContent" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
-			SWFUpload is loading. Please wait a moment...
-		</div>
-		<div id="divLongLoading" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
-			SWFUpload is taking a long time to load or the load has failed.  Please make sure that the Flash Plugin is enabled and that a working version of the Adobe Flash Player is installed.
-		</div>
-		<div id="divAlternateContent" class="content" style="background-color: #FFFF66; border-top: solid 4px #FF9966; border-bottom: solid 4px #FF9966; margin: 10px 25px; padding: 10px 15px; display: none;">
-			We're sorry.  SWFUpload could not load.  You may need to install or upgrade Flash Player.
-			Visit the <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">Adobe website</a> to get the Flash Player.
-		</div>
-	</form>
-</div>
-
 </body>
 </html>

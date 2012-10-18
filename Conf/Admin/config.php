@@ -1,7 +1,7 @@
 <?php
 $basearr=require('./Conf/config.php');
 $orignarr=array(
-'LOGO'=>'网站LOGO',
+'LOGO'=>'Uploads/20121018/03ff8ef80bb4ff4bed6d1b5eb32fe029.jpg',
 'WEBSITE'=>'网站名称',
 'CLOSE'=>'网站关闭',
 'CLOSETXT'=>'关闭原因',
@@ -12,7 +12,6 @@ $orignarr=array(
 'ATTACHPATH'=>'',
 'submit'=>'',
 'WEBURL'=>'网站URL',
-'ATTACHEXT'=>"*.jpg;*.gif;*.png;*.jpeg;",//格式
 
 );
 return array_merge($basearr,$orignarr);

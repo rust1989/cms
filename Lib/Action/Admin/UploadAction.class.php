@@ -6,11 +6,21 @@ class UploadAction extends GobalAction {
 	   parent::index();
 	}
     public function index(){
-       $this->display();
-    }
-	public function _list(){
-	  $DB=M('attachment');
+	   $DB=M('attachment_cateory');
 	   $list=$DB->select();
+	   $this->assign('list',$list);
+	   $this->display();	
+    }
+	public function _list($cid=''){
+	   if(!empty($cid)) $where=array('cid'=>$cid);	
+		
+	   $last=isset($_GET['last'])?$_GET['last']:'';
+	   $DB=M('attachment');
+	   if($last=='last')
+	   $list=$DB->where($where)->order('id desc')->limit(1)->select();
+	   else
+	   $list=$DB->where($where)->select();
+	  
 	   echo json_encode($list);
 	}
 	public function _upload(){
@@ -21,8 +31,8 @@ class UploadAction extends GobalAction {
 			$file_type   = $file_info['extension'];
 			$path="Uploads/".date("Ymd")."/";
 			if(!is_file($path)) @mkdir($path);
-			$name=md5(uniqid($_FILES["Filedata"]['name'])) . '.' . $file_info['extension'];
-			$save        = $path.$name;
+			$pname=md5(uniqid($_FILES["Filedata"]['name'])) . '.' . $file_info['extension'];
+			$save        = $path.$pname;
            
 			$name        = $_FILES['Filedata']['tmp_name'];
 			
@@ -32,8 +42,28 @@ class UploadAction extends GobalAction {
 	    $DB=M('attachment');
 		$DB->create();
 		$DB->picpath=$save;
-		$DB->name=$name;
+		$DB->cid=$_GET['cid'];
+		$DB->name=$pname;
 		$DB->add();
 	 }	
 	}
+	public function del(){
+	  $id=isset($_GET['id'])?$_GET['id']:'';
+	  if(!is_numeric($id)) $this->error("",__URL__.'/index');
+	  $DB=M('attachment');
+	  $list=$DB->where(array('id'=>$id))->find();
+	  $this->delImg($list['picpath']);
+	  $query=$DB->where(array('id'=>$id))->delete();
+	  $this->display('index');
+	}
+	public function add(){
+	  	$this->display();
+	}
+	public function save(){
+		$DB=M('attachment_cateory');
+		$DB->create();
+		$query=$DB->add();
+		$this->_jump($query,"index");
+	}
+	
 }

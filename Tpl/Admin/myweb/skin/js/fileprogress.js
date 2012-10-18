@@ -24,17 +24,24 @@ function FileProgress(file, targetID) {
 
 		this.fileProgressElement = document.createElement("div");
 		this.fileProgressElement.className = "progressContainer";
+		
+        
 
+        var progressNameA=document.createElement("a");
+		progressNameA.href="javascript:addimg('"+file.picpath+"')";
+        progressNameA.appendChild(document.createTextNode(file.name));
+		
+		var progressText = document.createElement("div");
+		progressText.className = "progressName";
+		progressText.appendChild(progressNameA);
+		
 		var progressCancel = document.createElement("a");
 		progressCancel.className = "progressCancel";
-		progressCancel.href = "#";
+		progressCancel.href = "/index.php/Admin/Upload/del/id/"+file.id;
 		progressCancel.style.visibility = "hidden";
 		progressCancel.appendChild(document.createTextNode(" "));
 
-		var progressText = document.createElement("div");
-		progressText.className = "progressName";
-		progressText.appendChild(document.createTextNode(file.name));
-
+		
 		var progressBar = document.createElement("div");
 		progressBar.className = "progressBarInProgress";
 

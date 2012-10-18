@@ -28,12 +28,7 @@ class SettingAction extends GobalAction {
 	  if(!$hand) $this->error($file."配置写入错误");
 	  $this->success("",__URL__.'/index');
     }
-	public  function _jump($query,$url=''){
-	  $url=isset($url)?$url:__URL__.'/index';
-	  if($query){
-		 $this->success("",$url);  
-	  }else{
-		 $this->error("",$url);
-	  }	
-	}
+   public function banner(){
+	  $this->display();   
+   }
 }
