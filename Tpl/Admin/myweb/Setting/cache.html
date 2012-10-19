@@ -16,7 +16,7 @@
     <input type='button' class="coolbg np" onClick="location='__URL__/index';" value='网站设置' />
     <input type='button' class="coolbg np" onClick="location='__URL__/database';" value='数据库设置' />
     <input type='button' class='coolbg np' onClick="location='__URL__/image';" value='图片上传设置' />
-     <input type='button' class="coolbg np" onClick="location='__URL__/cache';" value='缓存设置' />
+    <input type='button' class="coolbg np" onClick="location='__URL__/cache';" value='缓存设置' />
     <input type='button' class="coolbg np" onClick="location='__URL__/lang';" value='语言设置' />
     <input type='button' class="coolbg np" onClick="location='__URL__/banner';" value='广告设置' />
 
@@ -33,41 +33,34 @@
 
 <table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">
-	<td height="24" colspan="10">&nbsp;网站设置&nbsp;</td>
+	<td height="24" colspan="10">&nbsp;缓存设置&nbsp;</td>
 </tr>
 
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%"><?php echo L('LOGO');?></td>
+	<td width="30%"><?php echo L('TMPL_CACHE_ON');?></td>
 	<td align="left">
-       <div id="img" onClick="imgclick(this);"><img src="/<?php echo C('LOGO');?>" height="50" >
-       <input type="hidden" name="LOGO" id="img_hid" value="<?php echo C('LOGO');?>">
-       </div>
+       <input type="radio" name="TMPL_CACHE_ON" id="TMPL_CACHE_ON_1" value="true" <if condition="C('TMPL_CACHE_ON') eq true">checked='checked'</if>>true
+       <input type="radio" name="TMPL_CACHE_ON" id="TMPL_CACHE_ON_2" value="false" <if condition="C('TMPL_CACHE_ON') eq false">checked='checked'</if>>false       
+    </td>
+</tr>
+
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('ACTION_CACHE_ON');?></td>
+	<td align="left">
+       <input type="radio" name="ACTION_CACHE_ON" id="ACTION_CACHE_ON_1" value="true" <if condition="C('ACTION_CACHE_ON') eq true">checked='checked'</if>>true
+       <input type="radio" name="ACTION_CACHE_ON" id="ACTION_CACHE_ON_2" value="false" <if condition="C('ACTION_CACHE_ON') eq false">checked='checked'</if>>false
     </td>
 </tr>
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%"><?php echo L('WEBSITE');?></td>
+	<td width="30%"><?php echo L('HTML_CACHE_ON');?></td>
 	<td align="left">
-       <input type="text" name="WEBSITE" id="WEBSITE" value="<?php echo C('WEBSITE');?>">
+       <input type="radio" name="HTML_CACHE_ON" id="HTML_CACHE_ON_1" value="true" <if condition="C('HTML_CACHE_ON') eq true">checked='checked'</if>>true
+       <input type="radio" name="HTML_CACHE_ON" id="HTML_CACHE_ON_2" value="false" <if condition="C('HTML_CACHE_ON') eq false">checked='checked'</if>> false
+       
     </td>
 </tr>
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%"><?php echo L('WEBURL');?></td>
-	<td align="left">
-       <input type="text" name="WEBURL" id="WEBURL" value="<?php echo C('WEBURL');?>">
-    </td>
-</tr>
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%"><?php echo L('CLOSE');?></td>
-	<td align="left">
-       <input type="text" name="CLOSE" id="CLOSE" value="<?php echo C('CLOSE');?>">
-    </td>
-</tr>
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%"><?php echo L('CLOSETXT');?></td>
-	<td align="left">
-       <textarea id="CLOSETXT" name="CLOSETXT" id="CLOSETXT"><?php echo C('CLOSETXT');?></textarea>
-    </td>
-</tr>
+
+
 <tr align="right" bgcolor="#EEF4EA">
 	<td height="36"  colspan="2" align="center"><!--翻页代码 --><input name="submit"  type="submit" value="" class="submit"  /></td>
 </tr>

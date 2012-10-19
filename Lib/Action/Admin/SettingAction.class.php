@@ -12,6 +12,7 @@ class SettingAction extends GobalAction {
 	  $DB=M('Setting');
 	  $data=$_POST;
 	  array_pop($data);
+	  unset($data['submit']);
 	  $langid=$_SESSION['LANGID'];
 	  foreach($data as $key=>$val){
 		$query=$DB->query("REPLACE INTO my_setting VALUES ('$key','$val',$langid)");  
@@ -37,16 +38,10 @@ class SettingAction extends GobalAction {
 	  $this->assign('banner_2',$list[1]['picpath']);
 	  $this->display();   
    }
-   public function savebanner(){
-	 $DB=M('banner');
-	 $langid=$_SESSION['LANGID'];
-	 $data=$_POST;
-	 array_pop($data);
-	 array_pop($data);
-	 
-	 foreach($data as $key=>$val){
-	 $query=$DB->query("REPLACE INTO my_banner VALUES ('$key','$val',$langid)");
-	 }
-	 $this->success("","banner");
+   public function database(){
+	   $this->display();   
+   }
+   public function cache(){
+	  $this->display();   
    }
 }

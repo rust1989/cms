@@ -94,15 +94,15 @@ function noSelAll()
 </script>
 </head>
 <body leftmargin="8" topmargin="8" background='skin/images/allbg.gif'>
-
-<!--  快速转换位置按钮  -->
-<table width="98%" border="0" cellpadding="0" cellspacing="1" bgcolor="#D1DDAA" align="center">
+  <!--<!--  快速转换位置按钮  -->
+<table width="98%" border="0" cellpadding="0" cellspacing="1"  align="center">
 <tr>
- <td height="26" background="skin/images/newlinebg3.gif">
+ <td height="26">
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-  <td align="center">
-    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加角色' />
+  <td align="center" >
+    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='增加栏目' />
+    
  </td>
  </tr>
 </table>
@@ -115,24 +115,27 @@ function noSelAll()
 
 <table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">
-	<td height="24" colspan="10" background="skin/images/tbg.gif">&nbsp;文档列表&nbsp;</td>
+	<td height="24" colspan="10" background="skin/images/tbg.gif">&nbsp;网站栏目&nbsp;</td>
 </tr>
 <tr align="center" bgcolor="#FAFAF1" height="22">
 	<td width="6%">ID</td>
 	<td width="4%">选择</td>
-	<td width="34%">名称</td>
-	<td width="24%">最后登录时间</td>
-	<td width="18%">最后登录地址</td>
-	<td width="18%">操作</td>
+	<td width="28%">栏目名称</td>
+	<td width="20%">栏目类型</td>
+	<td width="20%">显示/隐藏</td>
+	<td width="10%">栏目位置</td>
+	<td width="10%">操作</td>
 </tr>
 <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>5</td>
+	<td><?php echo ($vo["id"]); ?></td>
 	<td><input name="id" type="checkbox" id="id" value="<?php echo ($vo["id"]); ?>" class="np"></td>
-	<td><?php echo ($vo["user"]); ?></a></td>
-	<td><?php echo date("Y-m-d H:i:s",$vo['logtime']);?></td>
-	<td><?php echo ($vo["logip"]); ?></td>
-	<td><a href="__URL__/add/id/<?php echo ($vo["id"]); ?>">编辑</a></td>
+	<td><a href='__URL__/addchild/id/<?php echo ($vo["id"]); ?>/mid/<?php echo ($vo["mid"]); ?>'><?php echo ($vo["title"]); ?>&nbsp;<img src="__IMG__/ico_add.gif"></a></td>
+	<td><?php echo ($vo["mid"]); ?></td>
+	<td><?php echo ($vo["show"]); ?></td>
+	<td><?php echo ($vo["position"]); ?></td>
+	<td><a href="__URL__/edit/id/<?php echo ($vo["id"]); ?>">编辑</a></td>
 </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+
 <tr bgcolor="#FAFAF1">
 <td height="28" colspan="10">
 	&nbsp;

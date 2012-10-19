@@ -48,16 +48,14 @@ return array(
 	'TMPL_PARSE_STRING'  =>array(
 
 
-     '__JS__' => '/myweb/Public/Js', // 增加新的JS类库路径替换规则
+     '__JS__' => '/Public/Js', // 增加新的JS类库路径替换规则
   
-     '__CSS__' => '/myweb/Public/Css', // 增加新的css类库路径替换规
+     '__CSS__' => '/Public/Css', // 增加新的css类库路径替换规
  
-     '__IMG__' => '/myweb/Public/Images', // 增加新的img类库路径替换
+     '__IMG__' => '/Public/Images', // 增加新的img类库路径替换
 	  ),
 	
 	 //缓存
-	 
-	  'TMPL_CACHE_ON'=>false,      // 默认开启模板缓存
 
       'TMPL_CACHE_ON'   => false,  // 默认开启模板编译缓存 false 的话每次都重新编译模板
 
@@ -76,19 +74,7 @@ return array(
 
       'VAR_LANGUAGE'     => 'l', // 默认语言切换变量
 	  
-	  //上传设置
 	  
-	  'ATTACHSIZE'=>3145728 ,//文件大小byte
-	  
-	  'ATTACHEXT'=>"*.jpg;*.gif;*.png;*.jpeg;",//格式
-	  
-	  'ATTACH'=>'',
-	  
-	  'THUMBMAXWIDTH'=>'',
-	  
-	  'THUMBMAXHEIGHT'=>'',
-	  
-	  'ATTACHPATH'=>'./Uploads',
 	
 	
 );

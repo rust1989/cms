@@ -11,16 +11,17 @@ class UploadAction extends GobalAction {
 	   $this->assign('list',$list);
 	   $this->display();	
     }
-	public function _list($cid=''){
+	public function _list(){
+	   $cid=$_GET['cid'];
 	   if(!empty($cid)) $where=array('cid'=>$cid);	
-		
+
 	   $last=isset($_GET['last'])?$_GET['last']:'';
 	   $DB=M('attachment');
 	   if($last=='last')
 	   $list=$DB->where($where)->order('id desc')->limit(1)->select();
 	   else
 	   $list=$DB->where($where)->select();
-	  
+	   if(empty($list))die('false');
 	   echo json_encode($list);
 	}
 	public function _upload(){
@@ -29,7 +30,7 @@ class UploadAction extends GobalAction {
 			$upload_file = $_FILES['Filedata'];
 			$file_info   = pathinfo($upload_file['name']);
 			$file_type   = $file_info['extension'];
-			$path="Uploads/".date("Ymd")."/";
+			$path="/Uploads/".date("Ymd")."/";
 			if(!is_file($path)) @mkdir($path);
 			$pname=md5(uniqid($_FILES["Filedata"]['name'])) . '.' . $file_info['extension'];
 			$save        = $path.$pname;

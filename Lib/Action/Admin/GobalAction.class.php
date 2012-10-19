@@ -22,7 +22,7 @@ class GobalAction extends Action {
 	}
 	/*跳转*/
    public function _jump($query,$url=''){
-	  $url=isset($url)?$url:"";
+	  $url=isset($url)?$url:"index";
 	  if($query){
 		 $this->success("",$url);  
 	  }else{

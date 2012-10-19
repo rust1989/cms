@@ -1,0 +1,58 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<title>文档管理</title>
+<link rel="stylesheet" type="text/css" href="<?php echo APP_TMPL_PATH;?>skin/css/base.css">
+</head>
+<body leftmargin="8" topmargin="8" background='skin/images/allbg.gif'>
+
+<!--  内容列表   -->
+<form name="form2" action="__URL__/save" method="post">
+
+<table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
+<tr bgcolor="#E7E7E7">
+	<td height="24" colspan="10" background="skin/images/tbg.gif">&nbsp;网站栏目&nbsp;</td>
+</tr>
+
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('NAME');?></td>
+	<td align="left">
+       <input type="text" name="title" id="title" value="{$list.title}">
+       <input type="hidden" name="id" id="id" value="{$list.id}">
+    </td>
+</tr>
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('MODULE');?></td>
+	<td align="left">
+       <select id="mid" name="mid">
+        <option value="">--栏目类型--</option>
+        <volist name="module" id="vo">
+         <option value="{$vo.mid}" <if condition="$list['mid'] eq $vo['mid']">selected='selected'</if>>{$vo.name}</option>
+        </volist>
+       </select>
+    </td>
+</tr>
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('SHOW');?></td>
+	<td align="left">
+       <input type="radio" name="show" id="show_1" value="1" <if condition="$list['show'] eq 1">checked='checked'</if>>true
+       <input type="radio" name="show" id="show_2" value="0" <if condition="$list['show'] eq 0">checked='checked'</if>>false
+    </td>
+</tr>
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('POSITION');?></td>
+	<td align="left">
+       <input type="checkbox" name="position[]" id="position1" value="0" <if condition="in_array(0,$list['position'])">checked='checked'</if>>头部
+       <input type="checkbox" name="position[]" id="position2" value="1" <if condition="in_array(1,$list['position'])">checked='checked'</if>>底部
+    </td>
+</tr>
+
+<tr align="right" bgcolor="#EEF4EA">
+	<td height="36"  colspan="2" align="center"><!--翻页代码 --><input name="submit"  type="submit" value="" class="submit"  /></td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>

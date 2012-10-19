@@ -52,4 +52,18 @@ function checkimg($name){
    if(!is_file($name)) return $name="/Public/Images/no_img.jpg";
    return $name;	
 }
+
+/*类型*/
+function checkmodule($id){
+  if(empty($id)) return false;
+  switch($ic){
+	 case 1:
+	 $name='单页';
+	 break;  
+	 case 2:
+	 $name="文章列表";
+	 break;
+ return $name;
+  }	
+}
 ?>
