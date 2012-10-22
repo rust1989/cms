@@ -1,4 +1,4 @@
-﻿<html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <title>文档管理</title>
@@ -35,7 +35,7 @@ function adArc(aid){
 function delArc(aid){
 	var qstr=getCheckboxItem();
 	if(aid==0) aid = getOneItem();
-	location="__URL__/del/id/"+aid;
+	location="archives.asp?aid="+aid+"&action=delArchives&qstr="+qstr+"";
 }
 
 //获得选中文件的文件名
@@ -102,90 +102,37 @@ function noSelAll()
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   <td align="center">
-    <input type='button' class="coolbg np" onClick="location='__URL__/addrole';" value='添加角色' />
-    
+    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加角色' />
  </td>
  </tr>
 </table>
 </td>
 </tr>
 </table>
-  
+ 
 <!--  内容列表   -->
-<form name="form2">
+<form name="form2" action="__URL__/saverole" method="post">
 
-<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
+<table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">
-	<td height="24" colspan="10" background="skin/images/tbg.gif">&nbsp;文档列表&nbsp;</td>
+	<td height="24" colspan="10" background="skin/images/tbg.gif"></td>
 </tr>
-<tr align="center" bgcolor="#FAFAF1" height="22">
-	<td width="6%">ID</td>
-	<td width="4%">选择</td>
-	<td width="28%">名称</td>
-	<td width="10%">操作</td>
-</tr>
-<volist name="list" id="vo">
+
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>{$vo.tid}</td>
-	<td><input name="id" type="checkbox" id="id" value="{$vo.tid}" class="np"></td>
-	<td>{$vo.name}</td>
-	<td><a href="__URL__/editrole/id/{$vo.tid}">编辑</a>&nbsp;|&nbsp;<a href="__URL__/permission/id/{$vo.tid}">权限</a></td>
-</tr>
-</volist>
-<tr bgcolor="#FAFAF1">
-<td height="28" colspan="10">
-	&nbsp;
-	<a href="javascript:selAll()" class="coolbg">全选</a>
-	<a href="javascript:noSelAll()" class="coolbg">取消</a>
-	<a href="javascript:updateArc(0)" class="coolbg">&nbsp;更新&nbsp;</a>
-	<a href="javascript:checkArc(0)" class="coolbg">&nbsp;审核&nbsp;</a>
-	<a href="javascript:adArc(0)" class="coolbg">&nbsp;推荐&nbsp;</a>
-	<a href="javascript:moveArc(0)" class="coolbg">&nbsp;移动&nbsp;</a>
-	<a href="javascript:delArc(0)" class="coolbg">&nbsp;删除&nbsp;</a>
-</td>
-</tr>
-<tr align="right" bgcolor="#EEF4EA">
-	<td height="36" colspan="10" align="center"><!--翻页代码 --></td>
-</tr>
-</table>
-
-</form>
-
-<!--  搜索表单  -->
-<form name='form3' action='' method='get'>
-<input type='hidden' name='dopost' value='' />
-<table width='98%'  border='0' cellpadding='1' cellspacing='1' bgcolor='#CBD8AC' align="center" style="margin-top:8px">
-  <tr bgcolor='#EEF4EA'>
-    <td background='skin/images/wbg.gif' align='center'>
-      <table border='0' cellpadding='0' cellspacing='0'>
-        <tr>
-          <td width='90' align='center'>搜索条件：</td>
-          <td width='160'>
-          <select name='cid' style='width:150'>
-          <option value='0'>选择类型...</option>
-          	<option value='1'>名称</option>
-          </select>
-        </td>
-        <td width='70'>
-          关键字：
-        </td>
-        <td width='160'>
-          	<input type='text' name='keyword' value='' style='width:150px' />
-        </td>
-        <td width='110'>
-    		<select name='orderby' style='width:80px'>
-            <option value='id'>排序...</option>
-            <option value='pubdate'>发布时间</option>
-      	</select>
-        </td>
-        <td>
-          <input name="imageField" type="image" src="skin/images/frame/search.gif" width="45" height="20" border="0" class="np" />
-        </td>
-       </tr>
-      </table>
+	<td width="30%"><?php echo L('NAME');?></td>
+	<td align="left">
+       <input type="text" name="name" id="name" value="<?php echo ($list["name"]); ?>">
+       <input type="hidden" name="tid" id="tid" value="<?php echo ($list["tid"]); ?>">
     </td>
-  </tr>
+</tr>
+
+<tr align="right" bgcolor="#EEF4EA">
+	<td height="36"  colspan="2" align="center"><!--翻页代码 --><input name="submit"  type="submit" value="" class="submit"  /></td>
+</tr>
 </table>
+
 </form>
+
+
 </body>
 </html>

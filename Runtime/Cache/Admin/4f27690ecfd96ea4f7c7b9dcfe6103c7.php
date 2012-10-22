@@ -1,4 +1,4 @@
-﻿<html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <title>文档管理</title>
@@ -35,7 +35,7 @@ function adArc(aid){
 function delArc(aid){
 	var qstr=getCheckboxItem();
 	if(aid==0) aid = getOneItem();
-	location="__URL__/del/id/"+aid;
+	location="archives.asp?aid="+aid+"&action=delArchives&qstr="+qstr+"";
 }
 
 //获得选中文件的文件名
@@ -102,8 +102,7 @@ function noSelAll()
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   <td align="center">
-    <input type='button' class="coolbg np" onClick="location='__URL__/addrole';" value='添加角色' />
-    
+    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加角色' />
  </td>
  </tr>
 </table>
@@ -121,17 +120,19 @@ function noSelAll()
 <tr align="center" bgcolor="#FAFAF1" height="22">
 	<td width="6%">ID</td>
 	<td width="4%">选择</td>
-	<td width="28%">名称</td>
-	<td width="10%">操作</td>
+	<td width="34%">名称</td>
+	<td width="24%">最后登录时间</td>
+	<td width="18%">最后登录地址</td>
+	<td width="18%">操作</td>
 </tr>
-<volist name="list" id="vo">
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>{$vo.tid}</td>
-	<td><input name="id" type="checkbox" id="id" value="{$vo.tid}" class="np"></td>
-	<td>{$vo.name}</td>
-	<td><a href="__URL__/editrole/id/{$vo.tid}">编辑</a>&nbsp;|&nbsp;<a href="__URL__/permission/id/{$vo.tid}">权限</a></td>
-</tr>
-</volist>
+<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td>5</td>
+	<td><input name="id" type="checkbox" id="id" value="<?php echo ($vo["id"]); ?>" class="np"></td>
+	<td><?php echo ($vo["user"]); ?></a></td>
+	<td><?php echo date("Y-m-d H:i:s",$vo['logtime']);?></td>
+	<td><?php echo ($vo["logip"]); ?></td>
+	<td><a href="__URL__/add/id/<?php echo ($vo["id"]); ?>">编辑</a></td>
+</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 <tr bgcolor="#FAFAF1">
 <td height="28" colspan="10">
 	&nbsp;

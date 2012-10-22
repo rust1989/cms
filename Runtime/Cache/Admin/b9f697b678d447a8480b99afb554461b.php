@@ -1,4 +1,4 @@
-﻿<html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <title>文档管理</title>
@@ -124,14 +124,12 @@ function noSelAll()
 	<td width="28%">名称</td>
 	<td width="10%">操作</td>
 </tr>
-<volist name="list" id="vo">
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td>{$vo.tid}</td>
-	<td><input name="id" type="checkbox" id="id" value="{$vo.tid}" class="np"></td>
-	<td>{$vo.name}</td>
-	<td><a href="__URL__/editrole/id/{$vo.tid}">编辑</a>&nbsp;|&nbsp;<a href="__URL__/permission/id/{$vo.tid}">权限</a></td>
-</tr>
-</volist>
+<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td><?php echo ($vo["tid"]); ?></td>
+	<td><input name="id" type="checkbox" id="id" value="<?php echo ($vo["tid"]); ?>" class="np"></td>
+	<td><?php echo ($vo["name"]); ?></td>
+	<td><a href="__URL__/editrole/id/<?php echo ($vo["tid"]); ?>">编辑</a>&nbsp;|&nbsp;<a href="__URL__/permission/id/<?php echo ($vo["tid"]); ?>">权限</a></td>
+</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 <tr bgcolor="#FAFAF1">
 <td height="28" colspan="10">
 	&nbsp;

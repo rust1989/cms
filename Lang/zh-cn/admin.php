@@ -81,6 +81,8 @@ return array(
   //栏目
   'MODULE'=>'类型',
   
+  'CLASS'=>'上级栏目',
+  
   'SHOW'=>'显示/隐藏',
   
   'POSITION'=>'显示位置',

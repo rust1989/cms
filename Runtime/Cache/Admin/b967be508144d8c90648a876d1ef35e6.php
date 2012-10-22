@@ -35,7 +35,7 @@ function adArc(aid){
 function delArc(aid){
 	var qstr=getCheckboxItem();
 	if(aid==0) aid = getOneItem();
-	location="archives.asp?aid="+aid+"&action=delArchives&qstr="+qstr+"";
+	location="__URL__/del/id/"+aid;
 }
 
 //获得选中文件的文件名
@@ -129,12 +129,21 @@ function noSelAll()
 <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td><?php echo ($vo["id"]); ?></td>
 	<td><input name="id" type="checkbox" id="id" value="<?php echo ($vo["id"]); ?>" class="np"></td>
-	<td><a href='__URL__/addchild/id/<?php echo ($vo["id"]); ?>/mid/<?php echo ($vo["mid"]); ?>'><?php echo ($vo["title"]); ?>&nbsp;<img src="__IMG__/ico_add.gif"></a></td>
+	<td><a href='__URL__/addchild/id/<?php echo ($vo["id"]); ?>'><?php echo ($vo["title"]); ?>&nbsp;<img src="__IMG__/ico_add.gif"></a></td>
 	<td><?php echo ($vo["mid"]); ?></td>
 	<td><?php echo ($vo["show"]); ?></td>
 	<td><?php echo ($vo["position"]); ?></td>
 	<td><a href="__URL__/edit/id/<?php echo ($vo["id"]); ?>">编辑</a></td>
-</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+</tr>
+  <?php if(is_array($child)): $i = 0; $__LIST__ = $child;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$jo): $mod = ($i % 2 );++$i; if($jo['pid'] == $vo['id']): ?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td><?php echo ($jo["id"]); ?></td>
+	<td><input name="id" type="checkbox" id="id" value="<?php echo ($jo["id"]); ?>" class="np"></td>
+	<td><a href='__URL__/addchild/id/<?php echo ($jo["id"]); ?>'  style="padding-left:10px; width:100px; display:block; text-align:right;"><?php echo ($jo["title"]); ?>&nbsp;<img src="__IMG__/ico_add.gif"></a></td>
+	<td><?php echo ($jo["mid"]); ?></td>
+	<td><?php echo ($jo["show"]); ?></td>
+	<td><?php echo ($jo["position"]); ?></td>
+	<td><a href="__URL__/edit/id/<?php echo ($jo["id"]); ?>">编辑</a></td>
+    </tr><?php endif; endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
 
 <tr bgcolor="#FAFAF1">
 <td height="28" colspan="10">

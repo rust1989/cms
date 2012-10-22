@@ -6,15 +6,26 @@ class ChannelAction extends GobalAction {
 	   parent::index();
 	}
     public function index(){
-	   $DB=M('category');
-	   $list=$DB->select();
-	   $this->assign('list',$list);
+	   $this->_category();
        $this->display();
     }
 	
 	public function add(){
 		$this->_module();
+		$this->_category();
 	   $this->display();	
+	}
+	public function addchild(){
+		$id=isset($_GET['id'])?$_GET['id']:'';
+		if(empty($id)) $this->error();
+		
+		$this->assign('id',$id);
+		$DB=M('category');
+		$arr=$DB->where(array('id'=>$id))->find();
+		$this->assign('moduleval',$arr['module']);
+	    $this->_module();
+		$this->_category();
+		$this->display('add');	
 	}
 	public function save(){
 		$DB=M('category');
@@ -30,20 +41,38 @@ class ChannelAction extends GobalAction {
 		$this->success("","index");
 	}
 	public function edit(){
-	  $module=$this->_module();
-	  $this->assign('module',$module);
+	 
 	  $id=isset($_GET['id'])?$_GET['id']:'';
 	  if(empty($id)) $this->error();
 	  $DB=M('category');
 	  $list=$DB->where(array('id'=>$id))->find();
+	  $pid=$list['pid'];
 	  $list['position']=explode(",",$list['position']);
-	  $this->assign('list',$list);
+	  $this->assign('listc',$list);
+	  $this->assign('id',$pid);
+	   $this->_module();
+	  $this->_category();
 	  $this->display('add');
 	}
 	private function _module(){
 	    $DB=M('module');
 		$module=$DB->select();
-		return $module;
+		$this->assign('module',$module);
+	}
+	private function _category(){
+	   $DB=M('category');
+	   $list=$DB->where('pid=0')->select();
+	   $child=$DB->where('pid!=0')->select();
+	   $this->assign('child',$child);
+	   $this->assign('list',$list);	
+	}
+	public function del(){
+		$id=isset($_GET['id'])?$_GET['id']:'';
+		
+		if(empty($id)) $this->error();
+		$DB=M('category');
+		$query=$DB->where(array('id'=>$id))->delete();
+		$this->_jump($query);
 	}
 	
 }

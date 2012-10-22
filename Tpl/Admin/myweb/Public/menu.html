@@ -24,7 +24,7 @@
             <li><a href='__GROUP__/{$vo.module}' target='main'>{$vo.title}</a></li>
             <volist name="clist" id="jo">
                <if condition="$jo['pid'] eq $vo['id']">
-              <li><a href='__GROUP__/{$jo.module}/{$jo.control}' target='main'>{$jo.title}</a></li>
+              <li><a href='__GROUP__/{$jo.module}/{$jo.action}' target='main'>{$jo.title}</a></li>
               </if>
             </volist>
           </ul>

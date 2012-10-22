@@ -35,7 +35,7 @@ function adArc(aid){
 function delArc(aid){
 	var qstr=getCheckboxItem();
 	if(aid==0) aid = getOneItem();
-	location="archives.asp?aid="+aid+"&action=delArchives&qstr="+qstr+"";
+	location="__URL__/del/id/"+aid;
 }
 
 //获得选中文件的文件名
@@ -136,6 +136,19 @@ function noSelAll()
 	<td>{$vo.position}</td>
 	<td><a href="__URL__/edit/id/{$vo.id}">编辑</a></td>
 </tr>
+  <volist name="child" id="jo">
+    <if condition="$jo['pid'] eq $vo['id']">
+    <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td>{$jo.id}</td>
+	<td><input name="id" type="checkbox" id="id" value="{$jo.id}" class="np"></td>
+	<td><a href='__URL__/addchild/id/{$jo.id}'  style="padding-left:10px; width:100px; display:block; text-align:right;">{$jo.title}&nbsp;<img src="__IMG__/ico_add.gif"></a></td>
+	<td>{$jo.mid}</td>
+	<td>{$jo.show}</td>
+	<td>{$jo.position}</td>
+	<td><a href="__URL__/edit/id/{$jo.id}">编辑</a></td>
+    </tr>
+    </if>
+  </volist>
 </volist>
 
 <tr bgcolor="#FAFAF1">
