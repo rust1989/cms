@@ -10,7 +10,7 @@
 <base target="main" />
 </head>
 <body target="main">
-<table width='99%' height="100%" border='0' cellspacing='0' cellpadding='0'>
+<table width='100%' height="100%" border='0' cellspacing='0' cellpadding='0'>
   <tr>
     <td style='padding-left:3px;padding-top:8px' valign="top">
 <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if($vo['pid'] == 0): ?><!-- Item 1 End -->

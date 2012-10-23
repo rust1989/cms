@@ -55,7 +55,7 @@ class ChannelAction extends GobalAction {
 	  $this->display('add');
 	}
 	private function _module(){
-	    $DB=M('module');
+	    $DB=M('model');
 		$module=$DB->select();
 		$this->assign('module',$module);
 	}
@@ -74,5 +74,33 @@ class ChannelAction extends GobalAction {
 		$query=$DB->where(array('id'=>$id))->delete();
 		$this->_jump($query);
 	}
-	
+	public function module(){
+		$DB=M('model');
+		$module=$DB->select();
+		$this->assign('list',$module);
+	   $this->display();	
+	}
+	public function addmodule(){
+	   $this->display();	
+	}
+	public function editmodule(){
+	   $id=isset($_GET['id'])?$_GET['id']:'';
+	   if(empty($id))$this->error();
+	   $DB=M('model');
+	   $list=$DB->where(array('mid'=>$id))->find();
+	   $this->assign('listc',$list);
+	   $this->display('addmodule');	
+	}
+	public function savemodule(){
+		$DB=M('model');
+		
+		$DB->create();
+		if(empty($_POST['mid']))
+   		$query=$DB->add();
+		else{
+		
+		$query=$DB->save();
+		}
+		$this->success("","module");
+	}
 }

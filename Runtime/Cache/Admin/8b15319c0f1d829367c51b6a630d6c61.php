@@ -35,7 +35,7 @@ function adArc(aid){
 function delArc(aid){
 	var qstr=getCheckboxItem();
 	if(aid==0) aid = getOneItem();
-	location="__URL__/del/id/"+aid;
+	location="archives.asp?aid="+aid+"&action=delArchives&qstr="+qstr+"";
 }
 
 //获得选中文件的文件名
@@ -102,8 +102,7 @@ function noSelAll()
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   <td align="center">
-    <input type='button' class="coolbg np" onClick="location='__URL__/addrole';" value='添加角色' />
-    
+    <input type='button' class="coolbg np" onClick="location='__URL__/addsort';" value='添加产品分类' />
  </td>
  </tr>
 </table>
@@ -121,15 +120,21 @@ function noSelAll()
 <tr align="center" bgcolor="#FAFAF1" height="22">
 	<td width="6%">ID</td>
 	<td width="4%">选择</td>
-	<td width="28%">名称</td>
-	<td width="10%">操作</td>
+	<td width="34%">名称</td>
+	<td width="18%">操作</td>
 </tr>
-<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td><?php echo ($vo["tid"]); ?></td>
-	<td><input name="id" type="checkbox" id="id" value="<?php echo ($vo["tid"]); ?>" class="np"></td>
-	<td><?php echo ($vo["name"]); ?></td>
-	<td><a href="__URL__/editrole/id/<?php echo ($vo["tid"]); ?>">编辑</a>&nbsp;|&nbsp;<a href="__URL__/permission/id/<?php echo ($vo["tid"]); ?>">权限</a></td>
-</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+<?php if(is_array($procates)): $i = 0; $__LIST__ = $procates;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td><?php echo ($vo["id"]); ?></td>
+	<td><input name="id" type="checkbox" id="id" value="<?php echo ($vo["id"]); ?>" class="np"></td>
+	<td><a href="__URL__/addchild/id/<?php echo ($vo["id"]); ?>"><?php echo ($vo["name"]); ?>&nbsp;<img src="__IMG__/ico_add.gif"></a></td>
+	<td><a href="__URL__/addsort/id/<?php echo ($vo["id"]); ?>">编辑</a></td>
+</tr>
+    <?php if(is_array($procateschild)): $i = 0; $__LIST__ = $procateschild;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$jo): $mod = ($i % 2 );++$i;?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+        <td><?php echo ($jo["id"]); ?></td>
+        <td><input name="id" type="checkbox" id="id" value="<?php echo ($jo["id"]); ?>" class="np"></td>
+        <td><a href="__URL__/addchild/id/<?php echo ($jo["id"]); ?>"  style="padding-left:10px; width:100px; display:block; text-align:right;"><?php echo ($jo["name"]); ?>&nbsp;<img src="__IMG__/ico_add.gif"></a></td>
+        <td><a href="__URL__/addsort/id/<?php echo ($jo["id"]); ?>">编辑</a></td>
+    </tr><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
 <tr bgcolor="#FAFAF1">
 <td height="28" colspan="10">
 	&nbsp;

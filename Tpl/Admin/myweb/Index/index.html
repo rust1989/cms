@@ -11,11 +11,11 @@ body
 }
 </style>
 </head>
-<frameset rows="60,*" cols="*" frameborder="no" border="0" framespacing="0">
+<frameset rows="76,*" cols="*" frameborder="no" border="0" framespacing="0">
   <frame src="__URL__/top" name="topFrame" scrolling="no">
   <frameset cols="180,*" name="btFrame" frameborder="NO" border="0" framespacing="0">
-    <frame src="__URL__/menu" noresize name="menu" scrolling="yes">
-    <frame src="__URL__/main" noresize name="main" scrolling="yes">
+    <frame src="__URL__/menu" noresize name="menu" scrolling="no">
+    <frame src="__URL__/main" noresize name="main" scrolling="auto">
   </frameset>
 </frameset>
 <noframes>

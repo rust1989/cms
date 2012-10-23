@@ -94,15 +94,14 @@ function noSelAll()
 </script>
 </head>
 <body leftmargin="8" topmargin="8" background='skin/images/allbg.gif'>
-
-<!--  快速转换位置按钮  -->
+  <!--<!--  快速转换位置按钮  -->
 <table width="98%" border="0" cellpadding="0" cellspacing="1"  align="center">
 <tr>
- <td height="26" background="skin/images/newlinebg3.gif">
+ <td height="26">
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-  <td align="center">
-    <input type='button' class="coolbg np" onClick="location='__URL__/addrole';" value='添加角色' />
+  <td align="center" >
+    <input type='button' class="coolbg np" onClick="location='__URL__/addmodule';" value='增加模型' />
     
  </td>
  </tr>
@@ -116,20 +115,21 @@ function noSelAll()
 
 <table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">
-	<td height="24" colspan="10" background="skin/images/tbg.gif">&nbsp;文档列表&nbsp;</td>
+	<td height="24" colspan="10" background="skin/images/tbg.gif">&nbsp;网站栏目&nbsp;</td>
 </tr>
 <tr align="center" bgcolor="#FAFAF1" height="22">
 	<td width="6%">ID</td>
 	<td width="4%">选择</td>
-	<td width="28%">名称</td>
+	<td width="28%">模型名称</td>
 	<td width="10%">操作</td>
 </tr>
 <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td><?php echo ($vo["tid"]); ?></td>
-	<td><input name="id" type="checkbox" id="id" value="<?php echo ($vo["tid"]); ?>" class="np"></td>
-	<td><?php echo ($vo["name"]); ?></td>
-	<td><a href="__URL__/editrole/id/<?php echo ($vo["tid"]); ?>">编辑</a>&nbsp;|&nbsp;<a href="__URL__/permission/id/<?php echo ($vo["tid"]); ?>">权限</a></td>
+	<td><?php echo ($vo["mid"]); ?></td>
+	<td><input name="id" type="checkbox" id="id" value="<?php echo ($vo["mid"]); ?>" class="np"></td>
+	<td><?php echo ($vo["name"]); ?>&nbsp;</td>
+	<td><a href="__URL__/editmodule/id/<?php echo ($vo["mid"]); ?>">编辑</a></td>
 </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+
 <tr bgcolor="#FAFAF1">
 <td height="28" colspan="10">
 	&nbsp;

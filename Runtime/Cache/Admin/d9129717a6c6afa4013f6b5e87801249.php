@@ -1,4 +1,4 @@
-﻿<html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <title>文档管理</title>
@@ -95,22 +95,37 @@ function noSelAll()
 </head>
 <body leftmargin="8" topmargin="8" background='skin/images/allbg.gif'>
 
+<!--  快速转换位置按钮  -->
+<table width="98%" border="0" cellpadding="0" cellspacing="1" bgcolor="#D1DDAA" align="center">
+<tr>
+ <td height="26" background="skin/images/newlinebg3.gif">
+  <table width="98%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <td align="center">
+    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加角色' />
+ </td>
+ </tr>
+</table>
+</td>
+</tr>
+</table>
+ 
 <!--  内容列表   -->
 <form name="form2" action="__URL__/saverole" method="post">
 
-<table width="100%" border="0" cellpadding="2" cellspacing="1"  align="center" style="margin-top:8px">
+<table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">
 	<td height="24" colspan="10" background="skin/images/tbg.gif"></td>
 </tr>
-<volist name="list" id="vo">
+
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%">{$vo.title}</td>
+	<td width="30%"><?php echo L('NAME');?></td>
 	<td align="left">
-      &nbsp; <input type="checkbox" name="permission[]" value="{$vo.id}" <if condition="in_array($vo['id'],$permission)">checked='checked'</if> >
+       <input type="text" name="name" id="name" value="<?php echo ($list["name"]); ?>">
+       <input type="hidden" name="tid" id="tid" value="<?php echo ($list["tid"]); ?>">
     </td>
 </tr>
-</volist>
-<input type="hidden" id="tid" name="tid" value="{$tid}">
+
 <tr align="right" bgcolor="#EEF4EA">
 	<td height="36"  colspan="2" align="center"><!--翻页代码 --><input name="submit"  type="submit" value="" class="submit"  /></td>
 </tr>

@@ -58,6 +58,7 @@ body { padding:0px; margin:0px; }
 	margin:0px;
 	padding:0px;
 	float:right;
+	padding-top:2px;
 	padding-right:10px;
 }
 
@@ -65,7 +66,7 @@ body { padding:0px; margin:0px; }
 	margin:0px;
 	padding:0px;
 	float:left;
-	margin-right:2px;
+	/*margin-right:2px;*/
 }
 
 #tpa dd.ditem {
@@ -79,20 +80,17 @@ body { padding:0px; margin:0px; }
 div.item
 {
   text-align:center;
-	background:url(<?php echo APP_TMPL_PATH;?>skin/images/frame/topitembg.gif) 0px 3px no-repeat;
-	width:82px;
-	height:26px;
+	background:url(<?php echo APP_TMPL_PATH;?>skin/images/frame/topitembg.gif) 0px 0px no-repeat;
+	width:74px;
+	height:28px;
 	line-height:28px;
 }
 
 .itemsel {
-  width:80px;
+  width:74px;
   text-align:center;
-  background:#226411;
-	border-left:1px solid #c5f097;
-	border-right:1px solid #c5f097;
-	border-top:1px solid #c5f097;
-	height:26px;
+  background:url(<?php echo APP_TMPL_PATH;?>skin/images/frame/top_nav_on.gif) no-repeat;
+	height:28px;
 	line-height:28px;
 }
 
@@ -107,7 +105,7 @@ a:link,a:visited {
 
 .item a:link, .item a:visited {
 	font-size: 12px;
-	color: #ffffff;
+	color: #069;
 	text-decoration: none;
 	font-weight: bold;
 }
@@ -134,16 +132,24 @@ a:link,a:visited {
   padding-left:10px;
   /* background:url(skin/images/frame/toprightbg.gif) no-repeat; */
 }
+#tpa dd .first{
+	width:10px;
+	background:url(<?php echo APP_TMPL_PATH;?>skin/images/frame/top_nav_left.jpg) no-repeat;
+}
+#tpa dd .last{
+	width:10px;
+	background:url(<?php echo APP_TMPL_PATH;?>skin/images/frame/top_nav_right.jpg) no-repeat;
+}
 </style>
 </head>
 <body bgColor='#ffffff'>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" background="<?php echo APP_TMPL_PATH;?>skin/images/frame/topbg.gif">
   <tr>
-    <td width='20%' height="60"><img src="<?php echo APP_TMPL_PATH;?>skin/images/frame/logo.gif" /></td>
+    <td width='20%' height="76"><img src="<?php echo APP_TMPL_PATH;?>skin/images/frame/logo.gif" /></td>
     <td width='80%' align="right" valign="bottom">
     	<table width="750" border="0" cellspacing="0" cellpadding="0">
       <tr>
-      <td align="right" height="26" style="padding-right:10px;line-height:26px;">
+      <td align="right" height="26" style="padding-right:10px; padding-bottom:10px;line-height:26px;">
         	您好：<span class="username"><?php echo $_SESSION['USER']; ?></span>，欢迎使用内容管理系统！
         	[<a href="/" target="_blank">网站主页</a>]
         	[<a href="" target="_blank">修改密码</a>]
@@ -151,18 +157,21 @@ a:link,a:visited {
       </td>
       </tr>
       <tr>
-        <td align="right" height="34" class="rmain">
+        <td align="right" height="28" class="rmain">
 		<dl id="tpa">
-		<dd class='img'><a href="javascript:ChangeMenu(-1);"><img vspace="5" src="<?php echo APP_TMPL_PATH;?>skin/images/frame/arrl.gif" border="0" width="5" height="8" alt="缩小左框架"  title="缩小左框架" /></a></dd>
+		<!--<dd class='img'><a href="javascript:ChangeMenu(-1);"><img vspace="5" src="<?php echo APP_TMPL_PATH;?>skin/images/frame/arrl.gif" border="0" width="5" height="8" alt="缩小左框架"  title="缩小左框架" /></a></dd>
 		<dd class='img'><a href="javascript:ChangeMenu(0);"><img vspace="3" src="<?php echo APP_TMPL_PATH;?>skin/images/frame/arrfc.gif" border="0" width="12" height="12" alt="显示/隐藏左框架" title="显示/隐藏左框架" /></a></dd>
 		<dd class='img' style="margin-right:10px;"><a href="javascript:ChangeMenu(1);"><img vspace="5" src="<?php echo APP_TMPL_PATH;?>skin/images/frame/arrr.gif" border="0" width="5" height="8" alt="增大左框架" title="增大左框架" /></a></dd>
-	
+	-->
+        <dd><div class=' first item'></div></dd>
         <volist name="list" id="vo">
          
            <dd><div class='item' id='item{$i}' onMouseMove="mv(this,'m',{$i});" onMouseOut="mv(this,'o',{$i});"><a href="__GROUP__/Menu/menu/action/{$vo.module}" onclick="changeSel({$i});"  target="menu">{$vo.title}</a></div></dd>
          
-        </volist>
+        </volist> 
+        <dd><div class=' last item'></div></dd>
         </dl>
+        
 		</td>
       </tr>
     </table></td>

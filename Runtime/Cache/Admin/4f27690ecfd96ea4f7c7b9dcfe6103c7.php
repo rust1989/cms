@@ -96,7 +96,7 @@ function noSelAll()
 <body leftmargin="8" topmargin="8" background='skin/images/allbg.gif'>
 
 <!--  快速转换位置按钮  -->
-<table width="98%" border="0" cellpadding="0" cellspacing="1" bgcolor="#D1DDAA" align="center">
+<table width="98%" border="0" cellpadding="0" cellspacing="1"  align="center">
 <tr>
  <td height="26" background="skin/images/newlinebg3.gif">
   <table width="98%" border="0" cellspacing="0" cellpadding="0">

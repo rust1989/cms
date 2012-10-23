@@ -87,6 +87,8 @@ return array(
   
   'POSITION'=>'显示位置',
   
+  'IMG'=>'图片'
+  
 	  
    
    

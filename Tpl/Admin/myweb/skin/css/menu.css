@@ -10,7 +10,7 @@ body {
  padding:0px;
  margin:auto;
  text-align:center;
- background-color:#9ad075;
+ background:url(../images/frame/left_bg_top.gif) repeat-y;
 }
 
 dl.bitem {
@@ -19,7 +19,7 @@ dl.bitem {
 }
 
 dl.bitem dt {
-  background:url(../images/frame/menubg.gif);
+  background:url(../images/frame/menu_title_bg.jpg) repeat-x;
   height:26px;
   line-height:26px;
   text-align:center;
@@ -27,7 +27,7 @@ dl.bitem dt {
 }
 
 dl.bitem dd {
-  padding:3px 3px 3px 3px;
+  padding:0px;
   background-color:#fff;
 }
 
@@ -57,7 +57,7 @@ span.items
 }
 
 ul {
-  padding-top:3px;
+/*  padding-top:3px;*/
 }
 
 li {
@@ -68,4 +68,13 @@ li {
 	padding:0px 0px 0px 22px;
 	line-height:24px;
 	background:url(../images/frame/arr4.gif) no-repeat 10px 9px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-color: #CAD9EA;
+	border-bottom-color: #CAD9EA;
+	border-left-color: #CAD9EA;
 }
