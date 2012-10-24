@@ -59,10 +59,10 @@ function swfUploadLoadFailed() {
    
 function fileQueued(file) {
 	try {
-		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
+		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setStatus("Pending...");
 		progress.toggleCancel(true, this);
-*/  /* jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
+  /* jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
 	    data=eval("("+data+")");
 		$.each(data,function(index,items){
           var progress=new FileProgress(items,"fsUploadProgress");
@@ -83,18 +83,18 @@ function fileQueueError(file, errorCode, message) {
 			return;
 		}
         
-		jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
+		/*jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
 	    data=eval("("+data+")");
 		$.each(data,function(index,items){
           var progress=new FileProgress(items,"fsUploadProgress");
 		 progress.setError();
 		 progress.toggleCancel(false);
 		});
-        });
+        });*/
 		
-		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
+		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setError();
-		progress.toggleCancel(false);*/
+		progress.toggleCancel(false);
 
 		switch (errorCode) {
 		case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
@@ -150,9 +150,9 @@ function uploadStart(file) {
 		 progress.setStatus("Uploading...");
 		});
         });*/
-		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
+		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setStatus("Uploading...");
-		progress.toggleCancel(true, this);*/
+		progress.toggleCancel(true, this);
 	}
 	catch (ex) {}
 	
@@ -163,7 +163,7 @@ function uploadProgress(file, bytesLoaded, bytesTotal) {
 	try {
 		var percent = Math.ceil((bytesLoaded / bytesTotal) * 100);
         
-		jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
+	/*	jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
 	    data=eval("("+data+")");
 		$.each(data,function(index,items){
           var progress=new FileProgress(items,"fsUploadProgress");
@@ -171,11 +171,11 @@ function uploadProgress(file, bytesLoaded, bytesTotal) {
 		  progress.setProgress(percent);
 		  progress.setStatus("Uploading...")
 		});
-        });
+        });*/
 		
-		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
+		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setProgress(percent);
-		progress.setStatus("Uploading...");*/
+		progress.setStatus("Uploading...");
 	} catch (ex) {
 		this.debug(ex);
 	}
@@ -183,7 +183,7 @@ function uploadProgress(file, bytesLoaded, bytesTotal) {
 
 function uploadSuccess(file, serverData) {
 	try {
-		jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
+		/*jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
 	    data=eval("("+data+")");
 		$.each(data,function(index,items){
           var progress=new FileProgress(items,"fsUploadProgress");
@@ -191,11 +191,11 @@ function uploadSuccess(file, serverData) {
 		  progress.toggleCancel(true,this);	
 		  progress.setStatus("Complete.");
 		});
-        });
-		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
+        });*/
+		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setComplete();
 		progress.setStatus("Complete.");
-		progress.toggleCancel(true,this);*/
+		progress.toggleCancel(true,this);
 
 	} catch (ex) {
 		this.debug(ex);
@@ -204,17 +204,17 @@ function uploadSuccess(file, serverData) {
 
 function uploadError(file, errorCode, message) {
 	try {
-		/*var progress = new FileProgress(file, this.customSettings.progressTarget);
+		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		progress.setError();
-		progress.toggleCancel(false);*/
-       jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
+		progress.toggleCancel(false);
+     /*  jQuery.get("/index.php/Admin/Upload/_list/last/last",function(data){						
 	    data=eval("("+data+")");
 		$.each(data,function(index,items){
           var progress=new FileProgress(items,"fsUploadProgress");
 		 progress.setError();
 		progress.toggleCancel(false);
 		});
-        });
+        });*/
 		switch (errorCode) {
 		case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
 			progress.setStatus("Upload Error: " + message);

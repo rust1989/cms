@@ -1,4 +1,4 @@
-﻿<html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <title>文档管理</title>
@@ -102,7 +102,7 @@ function noSelAll()
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   <td align="center">
-    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加产品' />
+    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加图片' />
  </td>
  </tr>
 </table>
@@ -118,26 +118,20 @@ function noSelAll()
 	<td height="24" colspan="10" background="skin/images/tbg.gif"></td>
 </tr>
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%"><?php echo L('MODULE');?></td>
+	<td width="30%"><?php echo L('TYPE');?></td>
 	<td align="left">
        <select name="tid" id="tid">
-          <option value="">--产品类型--</option>
-            <volist name="procates" id="vo">
-           <option value="{$vo.id}"  <if condition="$id eq $vo['id']">selected='selected'</if>>{$vo.name}</option>
-            <volist name="procateschild" id="jo">
-              <if condition="$jo['pid'] eq $vo['id']">
-             <option value="{$jo.id}"  <if condition="$id eq $jo['id']">selected='selected'</if>>&nbsp;&nbsp;{$jo.name}</option>
-              </if>
-            </volist>
-        </volist>
+          <option value="">--图片类型--</option>
+            <?php if(is_array($procates)): $i = 0; $__LIST__ = $procates;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"  <?php if($id == $vo['id']): ?>selected='selected'<?php endif; ?>><?php echo ($vo["name"]); ?></option>
+            <?php if(is_array($procateschild)): $i = 0; $__LIST__ = $procateschild;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$jo): $mod = ($i % 2 );++$i; if($jo['pid'] == $vo['id']): ?><option value="<?php echo ($jo["id"]); ?>"  <?php if($id == $jo['id']): ?>selected='selected'<?php endif; ?>>&nbsp;&nbsp;<?php echo ($jo["name"]); ?></option><?php endif; endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
        </select>
     </td>
 </tr>
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td width="30%"><?php echo L('NAME');?></td>
 	<td align="left">
-       <input type="text" name="name" id="user" value="{$list.name}">
-       <input type="hidden" name="id" id="id" value="{$list.id}">
+       <input type="text" name="name" id="user" value="<?php echo ($list["name"]); ?>">
+       <input type="hidden" name="id" id="id" value="<?php echo ($list["id"]); ?>">
     </td>
 </tr>
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
@@ -149,7 +143,7 @@ function noSelAll()
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td width="30%"><?php echo L('IMG');?></td>
 	<td align="left">
-       <div id="img" onClick="imgclick(this);"><img src="/{$list.picpath}" height="50" >
+       <div id="img" onClick="imgclick(this);"><img src="/<?php echo ($list["picpath"]); ?>" height="50" >
         <input type="hidden" name="picpath" id="img_hid" value="<?php echo C('banner_1');?>">
        </div>
     </td>

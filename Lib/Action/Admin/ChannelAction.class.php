@@ -35,7 +35,6 @@ class ChannelAction extends GobalAction {
 		if(empty($_POST['id']))
    		$query=$DB->add();
 		else{
-		
 		$query=$DB->save();
 		}
 		$this->success("","index");
@@ -47,7 +46,9 @@ class ChannelAction extends GobalAction {
 	  $DB=M('category');
 	  $list=$DB->where(array('id'=>$id))->find();
 	  $pid=$list['pid'];
+	  $m=$list['module'];
 	  $list['position']=explode(",",$list['position']);
+	  $this->assign('moduleval',$m);
 	  $this->assign('listc',$list);
 	  $this->assign('id',$pid);
 	   $this->_module();

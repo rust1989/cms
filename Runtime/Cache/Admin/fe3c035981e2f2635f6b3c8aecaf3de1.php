@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
 <link href="<?php echo APP_TMPL_PATH;?>skin/css/default.css" rel="stylesheet" type="text/css" />
@@ -38,9 +38,7 @@ function addimg(name){
 				<span style="float:right">
                 <?php echo L('CATEORY');?>：&nbsp;
                 <select id="cateory" name="cateory">
-                 <volist name="list" id="vo">
-                  <option value="{$vo.id}">{$vo.name}  </option>
-                 </volist>
+                 <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"><?php echo ($vo["name"]); ?>  </option><?php endforeach; endif; else: echo "" ;endif; ?>
                 </select>
                <input type="hidden" id="cid" name="cid" value="">
                 </span>
@@ -48,9 +46,7 @@ function addimg(name){
 			</p>
             <div class="fieldset  flash" id="fsUploadProgress">
 			<span class="legend">Upload Queue</span>
-          <!--  <volist name="list" id="vo">
-            <div class="progressWrapper"  style="opacity: 1; "><div class="progressContainer blue"><a class="progressCancel" href="__URL__/del/id/{$vo.id}" style="visibility: visible; "> </a><div class="progressName">图集.jpg</div><div class="progressBarStatus">Complete.</div><div class="progressBarComplete" style=""></div></div></div>
-			</volist>-->
+          <!--  <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="progressWrapper"  style="opacity: 1; "><div class="progressContainer blue"><a class="progressCancel" href="__URL__/del/id/<?php echo ($vo["id"]); ?>" style="visibility: visible; "> </a><div class="progressName">图集.jpg</div><div class="progressBarStatus">Complete.</div><div class="progressBarComplete" style=""></div></div></div><?php endforeach; endif; else: echo "" ;endif; ?>-->
             </div>
 		</div>
 		<noscript>

@@ -102,7 +102,7 @@ function noSelAll()
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   <td align="center">
-    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加产品' />
+    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加图片' />
  </td>
  </tr>
 </table>
@@ -118,10 +118,10 @@ function noSelAll()
 	<td height="24" colspan="10" background="skin/images/tbg.gif"></td>
 </tr>
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%"><?php echo L('MODULE');?></td>
+	<td width="30%"><?php echo L('TYPE');?></td>
 	<td align="left">
        <select name="tid" id="tid">
-          <option value="">--产品类型--</option>
+          <option value="">--图片类型--</option>
             <volist name="procates" id="vo">
            <option value="{$vo.id}"  <if condition="$id eq $vo['id']">selected='selected'</if>>{$vo.name}</option>
             <volist name="procateschild" id="jo">

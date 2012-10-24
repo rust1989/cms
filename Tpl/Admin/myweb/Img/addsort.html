@@ -102,7 +102,7 @@ function noSelAll()
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   <td align="center">
-    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加产品' />
+    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加产品分类' />
  </td>
  </tr>
 </table>
@@ -111,18 +111,18 @@ function noSelAll()
 </table>
  
 <!--  内容列表   -->
-<form name="form2" action="__URL__/save" method="post">
+<form name="form2" action="__URL__/savesort" method="post">
 
 <table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#D1DDAA" align="center" style="margin-top:8px">
 <tr bgcolor="#E7E7E7">
 	<td height="24" colspan="10" background="skin/images/tbg.gif"></td>
 </tr>
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%"><?php echo L('MODULE');?></td>
+	<td width="30%"><?php echo L('NAME');?></td>
 	<td align="left">
-       <select name="tid" id="tid">
-          <option value="">--产品类型--</option>
-            <volist name="procates" id="vo">
+      <select name="pid" id="pid">
+        <option value="0">--作为一级分类--</option>
+        <volist name="procates" id="vo">
            <option value="{$vo.id}"  <if condition="$id eq $vo['id']">selected='selected'</if>>{$vo.name}</option>
             <volist name="procateschild" id="jo">
               <if condition="$jo['pid'] eq $vo['id']">
@@ -130,28 +130,14 @@ function noSelAll()
               </if>
             </volist>
         </volist>
-       </select>
+      </select>
     </td>
 </tr>
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td width="30%"><?php echo L('NAME');?></td>
 	<td align="left">
-       <input type="text" name="name" id="user" value="{$list.name}">
+       <input type="text" name="name" id="name" value="{$list.name}">
        <input type="hidden" name="id" id="id" value="{$list.id}">
-    </td>
-</tr>
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%"><?php echo L('PRICE');?></td>
-	<td align="left">
-       <input type="text" name="price" id="price">
-    </td>
-</tr>
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%"><?php echo L('IMG');?></td>
-	<td align="left">
-       <div id="img" onClick="imgclick(this);"><img src="/{$list.picpath}" height="50" >
-        <input type="hidden" name="picpath" id="img_hid" value="<?php echo C('banner_1');?>">
-       </div>
     </td>
 </tr>
 
@@ -162,9 +148,6 @@ function noSelAll()
 
 </form>
 
-<script type="text/javascript" src="__JS__/jquery.js"></script>
-<script type="text/javascript" src="__JS__/skygqbox.js"></script>
-<script type="text/javascript" src="__JS__/img.js"></script>
 
 </body>
 </html>

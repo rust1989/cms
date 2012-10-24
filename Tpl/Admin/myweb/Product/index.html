@@ -122,13 +122,17 @@ function noSelAll()
 	<td width="6%">ID</td>
 	<td width="4%">选择</td>
 	<td width="28%">名称</td>
+    <td width="10%">类型</td>
+    <td width="10%">上传日期</td>
 	<td width="10%">操作</td>
 </tr>
 <volist name="list" id="vo">
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td>{$vo.tid}</td>
 	<td><input name="id" type="checkbox" id="id" value="{$vo.tid}" class="np"></td>
-	<td>{$vo.name}</td>
+    <td>{$vo.name}</td>
+    <td>{$vo.tid}</td>
+    <td><?php echo date("Y-m-d H:i:s",$vo['date']);?></td>
 	<td><a href="__URL__/editrole/id/{$vo.tid}">编辑</a>&nbsp;|&nbsp;<a href="__URL__/permission/id/{$vo.tid}">权限</a></td>
 </tr>
 </volist>

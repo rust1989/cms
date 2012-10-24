@@ -134,7 +134,7 @@ function noSelAll()
 	<td>{$vo.mid}</td>
 	<td>{$vo.show}</td>
 	<td>{$vo.position}</td>
-	<td><a href="__URL__/edit/id/{$vo.id}">编辑</a></td>
+	<td><a href="__URL__/edit/id/{$vo.id}/">编辑</a></td>
 </tr>
   <volist name="child" id="jo">
     <if condition="$jo['pid'] eq $vo['id']">
@@ -145,7 +145,7 @@ function noSelAll()
 	<td>{$jo.mid}</td>
 	<td>{$jo.show}</td>
 	<td>{$jo.position}</td>
-	<td><a href="__URL__/edit/id/{$jo.id}">编辑</a></td>
+	<td><a href="__URL__/edit/id/{$jo.id}/">编辑</a></td>
     </tr>
     </if>
   </volist>

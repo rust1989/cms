@@ -133,7 +133,7 @@ function noSelAll()
 	<td><?php echo ($vo["mid"]); ?></td>
 	<td><?php echo ($vo["show"]); ?></td>
 	<td><?php echo ($vo["position"]); ?></td>
-	<td><a href="__URL__/edit/id/<?php echo ($vo["id"]); ?>">编辑</a></td>
+	<td><a href="__URL__/edit/id/<?php echo ($vo["id"]); ?>/">编辑</a></td>
 </tr>
   <?php if(is_array($child)): $i = 0; $__LIST__ = $child;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$jo): $mod = ($i % 2 );++$i; if($jo['pid'] == $vo['id']): ?><tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td><?php echo ($jo["id"]); ?></td>
@@ -142,7 +142,7 @@ function noSelAll()
 	<td><?php echo ($jo["mid"]); ?></td>
 	<td><?php echo ($jo["show"]); ?></td>
 	<td><?php echo ($jo["position"]); ?></td>
-	<td><a href="__URL__/edit/id/<?php echo ($jo["id"]); ?>">编辑</a></td>
+	<td><a href="__URL__/edit/id/<?php echo ($jo["id"]); ?>/">编辑</a></td>
     </tr><?php endif; endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
 
 <tr bgcolor="#FAFAF1">

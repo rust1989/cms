@@ -87,7 +87,12 @@ return array(
   
   'POSITION'=>'显示位置',
   
-  'IMG'=>'图片'
+  'IMG'=>'图片',
+  
+  'TYPE'=>'类型',
+  
+  'PRICE'=>'价格'
+  
   
 	  
    

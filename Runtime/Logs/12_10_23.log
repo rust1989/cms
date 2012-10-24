@@ -348,3 +348,90 @@
 [ 2012-10-23T15:46:20+08:00 ] /index.php/Admin/product/skin/images/allbg.gif | ERR: (ThinkException) 非法操作skin
 [ 2012-10-23T15:46:20+08:00 ] /index.php/Admin/product/skin/images/tbg.gif | ERR: (ThinkException) 非法操作skin
 [ 2012-10-23T15:46:21+08:00 ] /index.php/Admin/product/skin/images/newlinebg3.gif | ERR: (ThinkException) 非法操作skin
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ route_check ] --START--
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Run CheckRoute Behavior [ RunTime:0.001742s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ route_check ] --END-- [ RunTime:0.001913s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ app_begin ] --START--
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Run ReadHtmlCache Behavior [ RunTime:0.001026s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Run CheckLang Behavior [ RunTime:0.003062s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ app_begin ] --END-- [ RunTime:0.004298s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | SQL: SHOW COLUMNS FROM `my_category` [ RunTime:0.002997s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | SQL: SELECT * FROM `my_category` WHERE pid=0  [ RunTime:0.000715s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | SQL: SELECT * FROM `my_category` WHERE pid!=0  [ RunTime:0.000482s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ view_template ] --START--
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Run LocationTemplate Behavior [ RunTime:0.001813s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ view_template ] --END-- [ RunTime:0.001903s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ view_parse ] --START--
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Run ParseTemplate Behavior [ RunTime:0.001691s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ view_parse ] --END-- [ RunTime:0.001773s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ view_filter ] --START--
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Run ContentReplace Behavior [ RunTime:0.000803s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Run TokenBuild Behavior [ RunTime:0.000725s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Run WriteHtmlCache Behavior [ RunTime:0.000539s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Run ShowRuntime Behavior [ RunTime:0.000765s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ view_filter ] --END-- [ RunTime:0.003022s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ view_end ] --START--
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Run ShowPageTrace Behavior [ RunTime:0.000796s ]
+[ 2012-10-23T16:40:39+08:00 ] /index.php/Admin/Menu/menu/action/Product | INFO: Tag[ view_end ] --END-- [ RunTime:0.000867s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ route_check ] --START--
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Run CheckRoute Behavior [ RunTime:0.000909s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ route_check ] --END-- [ RunTime:0.001035s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ app_begin ] --START--
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000763s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Run CheckLang Behavior [ RunTime:0.001890s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ app_begin ] --END-- [ RunTime:0.002854s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | SQL: SHOW COLUMNS FROM `my_product` [ RunTime:0.003531s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | SQL: SELECT * FROM `my_product`  [ RunTime:0.000853s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ view_template ] --START--
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Run LocationTemplate Behavior [ RunTime:0.001620s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ view_template ] --END-- [ RunTime:0.001735s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ view_parse ] --START--
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Run ParseTemplate Behavior [ RunTime:0.002455s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ view_parse ] --END-- [ RunTime:0.002542s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ view_filter ] --START--
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Run ContentReplace Behavior [ RunTime:0.000371s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Run TokenBuild Behavior [ RunTime:0.000430s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Run WriteHtmlCache Behavior [ RunTime:0.000216s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Run ShowRuntime Behavior [ RunTime:0.000612s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ view_filter ] --END-- [ RunTime:0.001817s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ view_end ] --START--
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Run ShowPageTrace Behavior [ RunTime:0.000546s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/Product | INFO: Tag[ view_end ] --END-- [ RunTime:0.000629s ]
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/skin/images/allbg.gif | ERR: (ThinkException) 无法加载模块Skin
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/skin/images/frame/search.gif | ERR: (ThinkException) 无法加载模块Skin
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/skin/images/newlinebg3.gif | ERR: (ThinkException) 无法加载模块Skin
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/skin/images/tbg.gif | ERR: (ThinkException) 无法加载模块Skin
+[ 2012-10-23T16:40:41+08:00 ] /index.php/Admin/skin/images/wbg.gif | ERR: (ThinkException) 无法加载模块Skin
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ route_check ] --START--
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Run CheckRoute Behavior [ RunTime:0.001017s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ route_check ] --END-- [ RunTime:0.001168s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ app_begin ] --START--
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000672s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Run CheckLang Behavior [ RunTime:0.002077s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ app_begin ] --END-- [ RunTime:0.003123s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ view_template ] --START--
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Run LocationTemplate Behavior [ RunTime:0.001520s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ view_template ] --END-- [ RunTime:0.001629s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ view_parse ] --START--
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | NOTIC: [8] Undefined variable: procates 29533b020bdce9b156a522c21780ec5b.php 第 125 行.
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | NOTIC: [8] Undefined variable: list 29533b020bdce9b156a522c21780ec5b.php 第 132 行.
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | NOTIC: [8] Undefined variable: list 29533b020bdce9b156a522c21780ec5b.php 第 133 行.
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | NOTIC: [8] Undefined variable: list 29533b020bdce9b156a522c21780ec5b.php 第 145 行.
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Run ParseTemplate Behavior [ RunTime:0.020125s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ view_parse ] --END-- [ RunTime:0.020216s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ view_filter ] --START--
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Run ContentReplace Behavior [ RunTime:0.000622s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Run TokenBuild Behavior [ RunTime:0.000642s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Run WriteHtmlCache Behavior [ RunTime:0.000347s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Run ShowRuntime Behavior [ RunTime:0.000527s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ view_filter ] --END-- [ RunTime:0.002492s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ view_end ] --START--
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Run ShowPageTrace Behavior [ RunTime:0.000525s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/add | INFO: Tag[ view_end ] --END-- [ RunTime:0.000603s ]
+[ 2012-10-23T16:40:42+08:00 ] / | INFO: Tag[ app_begin ] --START--
+[ 2012-10-23T16:40:42+08:00 ] / | INFO: Run ReadHtmlCache Behavior [ RunTime:0.001281s ]
+[ 2012-10-23T16:40:42+08:00 ] / | INFO: Run CheckLang Behavior [ RunTime:0.002231s ]
+[ 2012-10-23T16:40:42+08:00 ] / | INFO: Tag[ app_begin ] --END-- [ RunTime:0.003754s ]
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/skin/images/allbg.gif | ERR: (ThinkException) 非法操作skin
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/skin/images/newlinebg3.gif | ERR: (ThinkException) 非法操作skin
+[ 2012-10-23T16:40:42+08:00 ] /index.php/Admin/product/skin/images/tbg.gif | ERR: (ThinkException) 非法操作skin

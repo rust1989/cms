@@ -117,12 +117,27 @@ function noSelAll()
 <tr bgcolor="#E7E7E7">
 	<td height="24" colspan="10" background="skin/images/tbg.gif"></td>
 </tr>
-
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('MODULE');?></td>
+	<td align="left">
+       <select name="tid" id="tid">
+          <option value="">--产品类型--</option>
+            <?php if(is_array($procates)): $i = 0; $__LIST__ = $procates;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"  <?php if($id == $vo['id']): ?>selected='selected'<?php endif; ?>><?php echo ($vo["name"]); ?></option>
+            <?php if(is_array($procateschild)): $i = 0; $__LIST__ = $procateschild;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$jo): $mod = ($i % 2 );++$i; if($jo['pid'] == $vo['id']): ?><option value="<?php echo ($jo["id"]); ?>"  <?php if($id == $jo['id']): ?>selected='selected'<?php endif; ?>>&nbsp;&nbsp;<?php echo ($jo["name"]); ?></option><?php endif; endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
+       </select>
+    </td>
+</tr>
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 	<td width="30%"><?php echo L('NAME');?></td>
 	<td align="left">
        <input type="text" name="name" id="user" value="<?php echo ($list["name"]); ?>">
        <input type="hidden" name="id" id="id" value="<?php echo ($list["id"]); ?>">
+    </td>
+</tr>
+<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+	<td width="30%"><?php echo L('PRICE');?></td>
+	<td align="left">
+       <input type="text" name="price" id="price">
     </td>
 </tr>
 <tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
@@ -133,12 +148,7 @@ function noSelAll()
        </div>
     </td>
 </tr>
-<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
-	<td width="30%"><?php echo L('SPWD');?></td>
-	<td align="left">
-       <input type="password" name="spwd" id="spwd">
-    </td>
-</tr>
+
 <tr align="right" bgcolor="#EEF4EA">
 	<td height="36"  colspan="2" align="center"><!--翻页代码 --><input name="submit"  type="submit" value="" class="submit"  /></td>
 </tr>

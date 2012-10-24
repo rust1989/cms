@@ -1,21 +1,21 @@
 <?php
-class ProductAction extends GobalAction{
+class ImgAction extends GobalAction{
     public function __construct(){
 	   parent::__construct();
 	   parent::index();	
 	}	
  	public function index(){
-	   $DB=M('product');
+	   $DB=M('Img');
 	   $list=$DB->select();
 	   $this->assign('list',$list);
 	   $this->display();	
 	}
 	public function add(){
-	   $this->_procates();
+		$this->_procates();
 	   $this->display();	
 	}
 	public function save(){
-		$DB=M('product');
+		$DB=M('Img');
 		$DB->create();
 		if(empty($_POST['id'])){
 		$DB->date=time();
@@ -26,6 +26,7 @@ class ProductAction extends GobalAction{
 		$this->success("","index");
 	}
 	public function procates(){
+		
 	   $this->_procates();
 	   $this->display();	
 	}
@@ -62,7 +63,7 @@ class ProductAction extends GobalAction{
 	private function _procates(){
 		$DB=M('procates');
 		$mid=$this->_cid();
-	    $procates=$DB->where("pid=0 and cid='".$mid."'")->select();
+	    $procates=$DB->where(array('pid'=>0,'cid'=>$mid))->select();
 		$procateschild=$DB->where("pid!=0 and cid=$mid")->select();
 	    $this->assign('procates',$procates);
 	    $this->assign('procateschild',$procateschild);
@@ -70,8 +71,8 @@ class ProductAction extends GobalAction{
 	private function _cid(){
 	    $m=MODULE_NAME;
 		$mlist=M('category')->where(array('module'=>$m))->find();
-		$mid=$mlist['id'];	
-		return $mid;
+		$mid=$mlist['id'];
+		return $mid;	
 	}
 }
 ?>

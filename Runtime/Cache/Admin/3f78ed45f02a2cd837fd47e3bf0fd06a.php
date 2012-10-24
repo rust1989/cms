@@ -102,7 +102,7 @@ function noSelAll()
   <table width="98%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   <td align="center">
-    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加产品' />
+    <input type='button' class="coolbg np" onClick="location='__URL__/add';" value='添加图片' />
     
  </td>
  </tr>

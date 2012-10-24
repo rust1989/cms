@@ -25,13 +25,13 @@ class UploadAction extends GobalAction {
 	   echo json_encode($list);
 	}
 	public function _upload(){
-	
+	  $path="/Uploads/".date("Ymd")."/";
+	  if(!is_file($path)) @mkdir($path);
 	  if (isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
 			$upload_file = $_FILES['Filedata'];
 			$file_info   = pathinfo($upload_file['name']);
 			$file_type   = $file_info['extension'];
-			$path="/Uploads/".date("Ymd")."/";
-			if(!is_file($path)) @mkdir($path);
+			
 			$pname=md5(uniqid($_FILES["Filedata"]['name'])) . '.' . $file_info['extension'];
 			$save        = $path.$pname;
            
